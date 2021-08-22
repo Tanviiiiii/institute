@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html>
 
@@ -189,12 +192,16 @@
                             </figure>
                             <h3 class="mb-5 text-center heading">We are S2C</h3>
                             <h6 class="msg-info">Please login to your account</h6>
+                            <!--including loginprocess.php file -->
+                            <form action="loginProcess.php" method="post">
                             <div class="form-group"> <label class="form-control-label text-muted">Username</label>
-                                <input type="text" id="uname" name="uname" placeholder="Enter Username"
-                                    class="form-control" required> </div>
+                                <input type="text" id="uname" name="uname" placeholder="Enter Username" required="required"
+                                    class="form-control" >
+                            </div>
                             <div class="form-group"> <label class="form-control-label text-muted">Password</label>
                                 <input type="password" id="psw" name="psw" placeholder="Enter Password"
-                                    class="form-control" required> </div>
+                                    class="form-control" required>
+                            </div>
                             <div class="row justify-content-center my-3 px-3">
                                 <a href="../../s2c_dashboard/dashboard.html"
                                     class="btn-block btn-color text-decoration-none text-center">Login to S2C
@@ -206,7 +213,7 @@
                     </div>
                     <div class="bottom text-center mb-5">
                         <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p>
-                        <a href="reg.html" class="btn btn-white ml-2">Create your Account</a>
+                        <a href="register.html" class="btn btn-white ml-2">Create your Account</a>
                     </div>
                 </div>
                 <div class="card card2">
