@@ -177,8 +177,8 @@
         }
     </style>
 </head>
-
-<body oncontextmenu='return false' class='snippet-body'>
+<form action="loginProcess.php" method="post">
+    <body oncontextmenu='return false' class='snippet-body'>
     <div class="container px-4 py-5 mx-auto">
         <div class="card card0">
             <div class="d-flex flex-lg-row flex-column-reverse">
@@ -192,8 +192,6 @@
                             </figure>
                             <h3 class="mb-5 text-center heading">We are S2C</h3>
                             <h6 class="msg-info">Please login to your account</h6>
-                            <!--including loginprocess.php file -->
-                            <form action="loginProcess.php" method="post">
                             <div class="form-group"> <label class="form-control-label text-muted">Username</label>
                                 <input type="text" id="uname" name="uname" placeholder="Enter Username" required="required"
                                     class="form-control" >
@@ -245,6 +243,6 @@
     <script type='text/javascript'
         src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
     <script type='text/javascript'></script>
-</body>
-
+    </body>
+</form>
 </html>
