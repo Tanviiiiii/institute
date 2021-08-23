@@ -82,7 +82,7 @@ include 'examples/student-backend/database.php';
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="logout.html">
+                <a class="nav-link" href="logout.php">
                   <i class="ni ni-button-power text-red"></i>
                   <span class="nav-link-text"><strong>Logout</strong></span>
                 </a>
