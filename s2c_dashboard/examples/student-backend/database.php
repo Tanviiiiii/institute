@@ -8,3 +8,4 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 ?>
+<!--database name=user, table name=crud-->

@@ -7,3 +7,4 @@
         die('Could not Connect My Sql:' .mysql_error());
     }
 ?>
+<!--database name=loginvalidation. table name=register-->
