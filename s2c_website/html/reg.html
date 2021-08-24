@@ -1,66 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <title>Registration Form</title>
-        <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css' rel='stylesheet'>
-        <link href='' rel='stylesheet'>
-        <script type='text/javascript' src=''></script>
-        <style> @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        * {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registration Form</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="" rel="stylesheet" />
+    <script type="text/javascript" src=""></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+      * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Poppins', sans-serif
-        }
-        body {
+        font-family: "Poppins", sans-serif;
+      }
+      body {
         background: linear-gradient(45deg, #ce1e53, #8f00c7);
-        min-height: 100vh
-        }
-        body::-webkit-scrollbar {
-        display: none
-        }
-        .wrapper {
+        min-height: 100vh;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+      .wrapper {
         max-width: 800px;
         margin: 80px auto;
         padding: 30px 45px;
-        box-shadow: 5px 25px 35px #3535356b
-        }
-        .wrapper label {
+        box-shadow: 5px 25px 35px #3535356b;
+      }
+      .wrapper label {
         display: block;
-        padding-bottom: 0.2rem
-        }
-        .wrapper .form .row {
-        padding: 0.6rem 0
-        }
-        .wrapper .form .row .form-control {
-        box-shadow: none
-        }
-        .wrapper .form .option {
+        padding-bottom: 0.2rem;
+      }
+      .wrapper .form .row {
+        padding: 0.6rem 0;
+      }
+      .wrapper .form .row .form-control {
+        box-shadow: none;
+      }
+      .wrapper .form .option {
         position: relative;
         padding-left: 20px;
-        cursor: pointer
-        }
-        .wrapper .form .option input {
-        opacity: 0
-        }
-        .wrapper .form .checkmark {
+        cursor: pointer;
+      }
+      .wrapper .form .option input {
+        opacity: 0;
+      }
+      .wrapper .form .checkmark {
         position: absolute;
         top: 1px;
         left: 0;
         height: 20px;
         width: 20px;
         border: 1px solid #bbb;
-        border-radius: 50%
-        }
-        .wrapper .form .option input:checked~.checkmark:after {
-        display: block
-        }
-        .wrapper .form .option:hover .checkmark {
-        background: #f3f3f3
-        }
-        .wrapper .form .option .checkmark:after {
+        border-radius: 50%;
+      }
+      .wrapper .form .option input:checked ~ .checkmark:after {
+        display: block;
+      }
+      .wrapper .form .option:hover .checkmark {
+        background: #f3f3f3;
+      }
+      .wrapper .form .option .checkmark:after {
         content: "";
         width: 10px;
         height: 10px;
@@ -71,85 +75,150 @@
         left: 50%;
         border-radius: 50%;
         transform: translate(-50%, -50%) scale(0);
-        transition: 300ms ease-in-out 0s
-        }
-        .wrapper .form .option input[type="radio"]:checked~.checkmark {
+        transition: 300ms ease-in-out 0s;
+      }
+      .wrapper .form .option input[type="radio"]:checked ~ .checkmark {
         background: #fff;
-        transition: 300ms ease-in-out 0s
-        }
-        .wrapper .form .option input[type="radio"]:checked~.checkmark:after {
-        transform: translate(-50%, -50%) scale(1)
-        }
-        #sub {
+        transition: 300ms ease-in-out 0s;
+      }
+      .wrapper .form .option input[type="radio"]:checked ~ .checkmark:after {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      #sub {
         display: block;
         width: 100%;
         border: 1px solid #ddd;
         padding: 10px;
         border-radius: 5px;
-        color: #333
-        }
-        #sub:focus {
-        outline: none
-        }
-        @media(max-width: 768.5px) {
+        color: #333;
+      }
+      #sub:focus {
+        outline: none;
+      }
+      @media (max-width: 768.5px) {
         .wrapper {
-        margin: 30px
+          margin: 30px;
         }
         .wrapper .form .row {
-        padding: 0
+          padding: 0;
         }
-        }
-        @media(max-width: 400px) {
+      }
+      @media (max-width: 400px) {
         .wrapper {
-        padding: 25px;
-        margin: 20px
+          padding: 25px;
+          margin: 20px;
         }
-        }</style>
-    </head>
-    <body oncontextmenu='return false' class='snippet-body'>
-        <div class="wrapper rounded bg-white">
-            <div class="h3">Registration Form</div>
-            <div class="form">
-                <div class="row">
-                    <div class="col-md-6 mt-md-0 mt-3"> <label>First Name</label> <input type="text" class="form-control" name="firstname" id="firstname" required> </div>
-                    <div class="col-md-6 mt-md-0 mt-3"> <label>Last Name</label> <input type="text" class="form-control" name="lastname" id="lastname" required> </div>
-                </div>
-             
-            <div class="row">
-                <div class="col-md-4 mt-md-0 mt-3"> <label>Email</label>
-                     <input type="email" class="form-control" name="email" id="email" required> 
-                </div>
-                <div class="col-md-4 mt-md-0 mt-3"> <label>Password</label> <input type="password" class="form-control" name="password" id="password" required> </div>
-                <div class="col-md-4 mt-md-0 mt-3"> <label>Phone Number</label> <input type="tel" class="form-control" name="phone" id="phone" required> </div>
+      }
+    </style>
+  </head>
+  <body oncontextmenu="return false" class="snippet-body">
+    <div class="wrapper rounded bg-white">
+      <div class="h3">Registration Form</div>
+      <form action="register_a.php" method="POST" name="f1">
+        <div class="form">
+          <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+              <label>First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="firstname"
+                id="firstname"
+                required
+              />
             </div>
-               <div class="row">
-              
-                    <div class="col-md-6 mt-md-0 mt-3"> <label>Gender</label>
-                    <div class="d-flex align-items-center mt-2"> <label class="option"> <input type="radio" name="radio">Male <span class="checkmark"></span> </label> <label class="option ms-4"> <input type="radio" name="radio">Female <span class="checkmark"></span> </label> </div>
-                </div>
+            <div class="col-md-6 mt-md-0 mt-3">
+              <label>Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="lastname"
+                id="lastname"
+                required
+              />
             </div>
-            <div class=" my-md-2 my-3"> <label>Subject</label> <select id="sub" required>
-            <option value="" selected hidden>Choose Option</option>
-            <option value="Pcm">Physics/chemistry/mathematics(12th)</option>
-            <option value="sm">Science/Mathematics(10th)</option>
-            <option value="Physics">Physics(12th)</option>
-            <option value="Chemistry">Chemistry(12th)</option>
-            <option value="Mathematics">Mathematics(12th)</option>
-            <option value="Accounts">Accounts(12th)</option>
-            <option value="Business studies">Business studies(12th)</option>
-            <option value="Biology">Biology(12th)</option>
-            <option value="Science">Science(10th)</option>
-            <option value="Maths">Maths(10th)</option>
-            <option value="Engineering Coaching">Engineering Coaching</option>
-            <option value="NATA Coaching">NATA Coaching</option>
-            <option value="Polytechnic Coaching">Polytechnic Coaching</option>
-            <option value="JEE Mains/Advance">JEE Mains/Advance</option>
-            
-        </select> </div>
-        <div class="btn btn-primary mt-3">Submit</div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mt-md-0 mt-3">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="col-md-4 mt-md-0 mt-3">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                required
+              />
+            </div>
+            <div class="col-md-4 mt-md-0 mt-3">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                name="phone"
+                id="phone"
+                required
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+              <label>Gender</label>
+              <div class="d-flex align-items-center mt-2">
+                <label class="option">
+                  <input type="radio" name="radio" value="male" />Male
+                  <span class="checkmark"></span>
+                </label>
+                <label class="option ms-4">
+                  <input type="radio" name="radio" value="female" />Female
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="my-md-2 my-3">
+            <label>Subject</label>
+            <select id="sub" name="sub" required>
+              <option value="" selected>Choose Option</option>
+              <option value="Pcm">Physics/chemistry/mathematics(12th)</option>
+              <option value="sm">Science/Mathematics(10th)</option>
+              <option value="Physics">Physics(12th)</option>
+              <option value="Chemistry">Chemistry(12th)</option>
+              <option value="Mathematics">Mathematics(12th)</option>
+              <option value="Accounts">Accounts(12th)</option>
+              <option value="Business studies">Business studies(12th)</option>
+              <option value="Biology">Biology(12th)</option>
+              <option value="Science">Science(10th)</option>
+              <option value="Maths">Maths(10th)</option>
+              <option value="Engineering Coaching">Engineering Coaching</option>
+              <option value="NATA Coaching">NATA Coaching</option>
+              <option value="Polytechnic Coaching">Polytechnic Coaching</option>
+              <option value="JEE Mains/Advance">JEE Mains/Advance</option>
+            </select>
+          </div>
+          <input
+            class="btn btn-primary mt-3"
+            name="submit"
+            type="submit"
+            value="Submit"
+          />
+        </div>
+      </form>
     </div>
-</div>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js'></script>
-<script type='text/javascript'></script>
-</body>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script type="text/javascript"></script>
+  </body>
 </html>
