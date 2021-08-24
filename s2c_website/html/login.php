@@ -177,7 +177,7 @@
         }
     </style>
 </head>
-<form action="loginProcess.php" method="post">
+<form action="loginProcess.php" method="POST" name="form1">
     <body oncontextmenu='return false' class='snippet-body'>
     <div class="container px-4 py-5 mx-auto">
         <div class="card card0">
@@ -201,9 +201,11 @@
                                     class="form-control" required>
                             </div>
                             <div class="row justify-content-center my-3 px-3">
-                                <a href="../../s2c_dashboard/dashboard.html"
-                                    class="btn-block btn-color text-decoration-none text-center">Login to S2C
-                                </a>
+
+                                <input type="submit"
+                                    class="btn-block btn-color text-decoration-none text-center text-white"
+                                    name="submit" value="Login to s2c" />
+                            
                             </div>
                             <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot
                                         Password?</small></a> </div>

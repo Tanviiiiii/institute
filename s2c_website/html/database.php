@@ -1,10 +1,15 @@
 <?php
-    $url='localhost';
-    $username='root';
-    $password='3781';
-    $conn=mysqli_connect($url,$username,$password,"loginvalidation");
-    if(!$conn){
-        die('Could not Connect My Sql:' .mysql_error());
-    }
-?>
-<!--database name=loginvalidation. table name=register-->
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
+define('DB_NAME', 'user');
+
+
+// Create connection
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}

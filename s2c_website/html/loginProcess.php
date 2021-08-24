@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_POST['save']))
+if(isset($_POST['submit']))
 {
     extract($_POST);
     include 'database.php';
@@ -19,4 +19,3 @@ if(isset($_POST['save']))
         echo "Invalid Email ID/Password";
     }
 }
-?>

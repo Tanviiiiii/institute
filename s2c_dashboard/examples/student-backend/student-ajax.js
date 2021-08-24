@@ -1,10 +1,10 @@
-console.log("hello");
 $(document).on('click', '#btn-add', function (e) {
+    alert(1);
     var data = $("#user_form").serialize();
     $.ajax({
         data: data,
-        type: "post",
-        url: "student-backend/save.php",
+        type: "POST",
+        url: "examples/student-backend/save.php",
         success: function (dataResult) {
             var dataResult = JSON.parse(dataResult);
             if (dataResult.statusCode == 200) {
@@ -36,7 +36,7 @@ $(document).on('click', '#update', function (e) {
     $.ajax({
         data: data,
         type: "post",
-        url: "student-backend/save.php",
+        url: "examples/student-backend/save.php",
         success: function (dataResult) {
             var dataResult = JSON.parse(dataResult);
             if (dataResult.statusCode == 200) {
@@ -57,7 +57,7 @@ $(document).on("click", ".delete", function () {
 });
 $(document).on("click", "#delete", function () {
     $.ajax({
-        url: "student-backend/save.php",
+        url: "examples/student-backend/save.php",
         type: "POST",
         cache: false,
         data: {
@@ -87,7 +87,7 @@ $(document).on("click", "#delete_multiple", function () {
             console.log(selected_values);
             $.ajax({
                 type: "POST",
-                url: "student-backend/save.php",
+                url: "examples/student-backend/save.php",
                 cache: false,
                 data: {
                     type: 4,
