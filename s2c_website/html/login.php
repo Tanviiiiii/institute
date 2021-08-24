@@ -198,6 +198,7 @@
                             <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p><a href="register.html" class="btn btn-white ml-2">Create your Account</a>
                         </div>
                     </div>
+
                     <div class="card card2">
                         <div class="my-auto mx-md-5 px-md-5 right">
                             <h3 class="text-white">We are more than just a Institute....</h3>
@@ -212,6 +213,34 @@
                                         <li>we also provide some recordings and animated content of our lectures on you-tube for future reference and revision help.
                             </medium></strong></ul>
                         </div>
+
+                    <div class="bottom text-center mb-5">
+                        <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p>
+                        <a href="reg.html" class="btn btn-white ml-2">Create your Account</a>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="my-auto mx-md-5 px-md-5 right">
+                        <h3 class="text-white">We are more than just a Institute....</h3>
+                        <medium class="text-black">
+                            <ul>
+                                <strong> At Sumit Sharma Classes,<br>
+                                    <li>We provide best educational service with personal attention and bringing out the
+                                        best from a child.
+                                    <li>We always look forward to make education more interesting and developing the
+                                        facts finding quality in students rather than being a rattan parrot.
+                                    <li>We provide best educational service with very small batches and with individuals
+                                        attention.
+                                    <li>We have well qualified and experienced teachers.
+                                    <li>Regular test are being conducted and regular feedback via msgs call and parent
+                                        meetings is being provided to parents.
+                                    <li>We always try to be more innovative in our way to make study more interesting
+                                        and easy for children.
+                                    <li>we also provide some recordings and animated content of our lectures on you-tube
+                                        for future reference and revision help.
+                        </medium></strong>
+                        </ul>
+
                     </div>
                 </div>
             </div>
