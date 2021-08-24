@@ -213,7 +213,7 @@
                     </div>
                     <div class="bottom text-center mb-5">
                         <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p>
-                        <a href="register.html" class="btn btn-white ml-2">Create your Account</a>
+                        <a href="reg.html" class="btn btn-white ml-2">Create your Account</a>
                     </div>
                 </div>
                 <div class="card card2">
