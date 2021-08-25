@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `crud`
+-- Database: `institute`
 --
 
 -- --------------------------------------------------------
@@ -36,7 +36,7 @@ CREATE TABLE `register` (
   `phone` varchar(10) NOT NULL,
   `gender` char(1) NOT NULL,
   `subject` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `register`
