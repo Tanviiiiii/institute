@@ -9,12 +9,13 @@ if (isset($_POST['submit'])) {
     $gender = $_POST['radio'];
     $subject = $_POST['sub'];
 
-    $query = "INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('{$firstname}','${lastname}','{$email}','{$password}','{$phone}','{$gender}','{$subject}')";
-    $res = mysqli_query($conn, $query);
+    $query = "INSERT INTO `register`( `firstname`, `lastname`, `email`, `password`, `phone`, `gender`, `subject`) VALUES ('$firstname','$lastname','$email','$password','$phone','$gender','$subject')";
 
-    if (!$res) {
-        die("Query not inserted");
-    } else {
+    // $result = mysqli_query($conn, $query) or die("Excution failed");
+
+    if (mysqli_query($conn, $query)) {
         echo "<h1>Registration Successful</h1>";
+    } else {
+        echo "ERROR: Could not able to execute $query. " . mysqli_error($conn);
     }
 }

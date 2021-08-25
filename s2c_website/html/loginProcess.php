@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         echo "User logged in ";
         header("location: ../../s2c_dashboard/dashboard.html");
     } else {
-        echo "No username found with this";
+        "<script>alert('no user found');</script>";
         header("location: login.php");
     }
 }
