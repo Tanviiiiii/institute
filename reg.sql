@@ -45,6 +45,9 @@ CREATE TABLE `register` (
 INSERT INTO `register` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `gender`, `subject`) VALUES
 (1, 'faraz', 'hello', 'faraz.mobin17@gmail.com', 'asdff', '1234567891', 'm', 'Mathematics');
 
+INSERT INTO `register` (`id`, `firstname`, `lastname`, `email`, `password`, `phone`, `gender`, `subject`) VALUES
+(2, 'tanvi', 'singla', 'tanvisingla3781@gmail.com', 'tanvi', '8725063781', 'f', 'Mathematics');
+
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
