@@ -1,11 +1,9 @@
 <?php
 include("./assets/js/student-backend/student-ajax.js");
 // echo "1";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

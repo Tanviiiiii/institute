@@ -223,36 +223,38 @@ if (isset($_POST['submit'])) {
                                 <div class="row justify-content-center my-3 px-3">
                                     <input type="submit" class="btn-block btn-color text-decoration-none text-center text-white" name="submit" value="Login to s2c" />
                                 </div>
-                                <div class="row d-flex justify-content-center my-2"><a href="#" class="text-center"><small class="text-muted">Forgot Password?</small></a></div>
+                                <<<<<<< HEAD:s2c_website/login.php <div class="row d-flex justify-content-center my-2"><a href="#" class="text-center"><small class="text-muted">Forgot Password?</small></a>
                         </div>
                     </div>
-                    <div class="bottom text-center mb-5">
-                        <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p><a href="reg.php" class="btn btn-white ml-2">Create your Account</a>
-                    </div>
                 </div>
-                </form>
-                <div class="card card2">
-                    <div class="my-auto mx-md-5 px-md-5 right">
-                        <h3 class="text-white">We are more than just a Institute....</h3>
-                        <medium class="text-black">
-                            <ul><strong> At Sumit Sharma Classes,<br>
-                                    <li>We provide best educational service with personal attention and bringing out the best from a child.
-                                    <li>We always look forward to make education more interesting and developing the facts finding quality in students rather than being a rattan parrot.
-                                    <li>We provide best educational service with very small batches and with individuals attention.
-                                    <li>We have well qualified and experienced teachers.
-                                    <li>Regular test are being conducted and regular feedback via msgs call and parent meetings is being provided to parents.
-                                    <li>We always try to be more innovative in our way to make study more interesting and easy for children.
-                                    <li>we also provide some recordings and animated content of our lectures on you-tube for future reference and revision help.
-                        </medium></strong></ul>
-                    </div>
-
+                <div class="bottom text-center mb-5">
+                    <p href="#" class="sm-text mx-auto mb-3">If you don't have an account?</p><a href="reg.php" class="btn btn-white ml-2">Create your Account</a>
+                </div>
+            </div>
+            </form>
+            <div class="card card2">
+                <div class="my-auto mx-md-5 px-md-5 right">
+                    <h3 class="text-white">We are more than just a Institute....</h3>
+                    <medium class="text-black">
+                        <ul><strong> At Sumit Sharma Classes,<br>
+                                <li>We provide best educational service with personal attention and bringing out the best from a child.
+                                <li>We always look forward to make education more interesting and developing the facts finding quality in students rather than being a rattan parrot.
+                                <li>We provide best educational service with very small batches and with individuals attention.
+                                <li>We have well qualified and experienced teachers.
+                                <li>Regular test are being conducted and regular feedback via msgs call and parent meetings is being provided to parents.
+                                <li>We always try to be more innovative in our way to make study more interesting and easy for children.
+                                <li>we also provide some recordings and animated content of our lectures on you-tube for future reference and revision help.
+                    </medium></strong></ul>
                 </div>
 
             </div>
+
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </body>
 
 
-</html>
+
+</html
