@@ -1,11 +1,9 @@
 <?php
 include 'examples/student-backend/database.php';
 // echo "1";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
