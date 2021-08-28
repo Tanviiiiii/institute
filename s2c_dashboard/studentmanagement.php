@@ -1,6 +1,7 @@
 <?php
+
 include("../includes/database.php");
-// echo "1";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,6 @@ include("../includes/database.php");
     <!-- Icons -->
 
     <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- Page plugins -->
     <!-- Argon CSS -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -301,7 +301,9 @@ include("../includes/database.php");
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="./assets/js/student-backend/student-ajax.js"></script>
+
 
 </body>
 

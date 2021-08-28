@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $count = mysqli_num_rows($result);
     if ($count == 1) {
         echo "User logged in ";
-        header("location: ../../s2c_dashboard/dashboard.html");
+        header("location:..\s2c_dashboard\dashboard.html");
     } else {
 ?>
         <div class="container mt-md-4 mt-2">
@@ -223,6 +223,7 @@ if (isset($_POST['submit'])) {
 
 
 <body class='snippet-body'>
+
     <div class="container d-flex justify-content-center align-items-center px-5 py-4 mx-auto h-100">
         <div class="card card0">
             <div class="d-flex flex-lg-row flex-column-reverse">
@@ -269,7 +270,4 @@ if (isset($_POST['submit'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </body>
-
-
-
 </html
