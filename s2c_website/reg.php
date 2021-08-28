@@ -1,5 +1,5 @@
 <?php
-include("./includes/database.php");
+include("../includes/database.php");
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = "";
 function test_input($data)
 {
