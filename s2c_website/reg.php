@@ -286,6 +286,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
           </select>
         </div>
         <input class="btn btn-primary mt-3" name="submit" type="submit" value="Submit" />
+        <a href="login.php" class="btn btn-danger text-decoration-none text-white mt-3">Back to login page</a>
       </div>
     </form>
   </div>
