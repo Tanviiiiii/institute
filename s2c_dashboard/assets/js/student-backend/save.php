@@ -1,5 +1,5 @@
 <?php
-include 'database.php';
+include 'includes\database.php';
 if(count($_POST)>0){
 	if($_POST['type']==1){
 		$name=$_POST['name'];
