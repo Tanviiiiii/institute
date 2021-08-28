@@ -19,14 +19,14 @@ include("../includes/database.php");
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-
+    <link rel="stylesheet" href="./assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/vendor/nucleo/css/nucleo.css" type="text/css">
-    <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/js/student-backend/student-style.css">
+    <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
+
 
     <style>
         * {
@@ -128,7 +128,7 @@ include("../includes/database.php");
                         <h2 class="text-white">Students <b>List</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
+                        <a href="#addEmployeeModal" class="btn btn-success" data-bs-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
                         <a href="JavaScript:void(0);" class="btn btn-danger" id="delete_multiple"><i class="material-icons">&#xE15C;</i> <span>Delete</span></a>
                     </div>
                 </div>
@@ -189,10 +189,12 @@ include("../includes/database.php");
                                 echo $row["city"]; ?>
                             </td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                                    <i class="material-icons update" data-toggle="tooltip" data-id="<?php echo $row["id"]; ?>" data-name="<?php echo $row["name"]; ?>" data-email="<?php echo $row["email"]; ?>" data-phone="<?php echo $row["phone"]; ?>" data-city="<?php echo $row["city"]; ?>" title="Edit">&#xE254;</i>
+                                <a href="#editEmployeeModal" class="edit" data-bs-toggle="modal">
+                                    <i class="material-icons update" data-bs-toggle="tooltip" data-id="<?php echo $row["id"]; ?>" data-name="<?php echo $row["name"]; ?>" data-email="<?php echo $row["email"]; ?>" data-phone="<?php echo $row["phone"]; ?>" data-city="<?php echo $row["city"]; ?>" title="Edit">&#xE254;</i>
                                 </a>
-                                <a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-bs-toggle="modal">
+                                    <i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i>
+                                </a>
                             </td>
                         </tr>
                     <?php
@@ -211,7 +213,7 @@ include("../includes/database.php");
                 <form id="user_form" method="POST">
                     <div class="modal-header">
                         <h4 class="modal-title">Add User</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
@@ -233,7 +235,7 @@ include("../includes/database.php");
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" value="1" name="type">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
                         <button type="button" class="btn btn-success" id="btn-add">Add</button>
                     </div>
                 </form>
@@ -247,7 +249,7 @@ include("../includes/database.php");
                 <form id="update_form">
                     <div class="modal-header">
                         <h4 class="modal-title">Edit User</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
                         <input type="hidden" id="id_u" name="id" class="form-control" required>
@@ -270,7 +272,7 @@ include("../includes/database.php");
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" value="2" name="type">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
                         <button type="button" class="btn btn-info" id="update">Update</button>
                     </div>
                 </form>
@@ -284,7 +286,7 @@ include("../includes/database.php");
                 <form>
                     <div class="modal-header">
                         <h4 class="modal-title">Delete User</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
                         <input type="hidden" id="id_d" name="id" class="form-control">
@@ -292,19 +294,19 @@ include("../includes/database.php");
                         <p class="text-warning"><small>This action cannot be undone.</small></p>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="button" class="btn btn-default" data-bs-dismiss="modal" value="Cancel">
                         <button type="button" class="btn btn-danger" id="delete">Delete</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
 
     <script src="./assets/js/student-backend/student-ajax.js"></script>
-
-
 </body>
 
 </html>
