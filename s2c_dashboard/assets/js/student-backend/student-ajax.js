@@ -1,3 +1,4 @@
+
 console.log("hello world");
 $(document).on("click", "#btn-add", function (e) {
   alert(1);
@@ -17,6 +18,7 @@ $(document).on("click", "#btn-add", function (e) {
       }
     },
   });
+
 });
 $(document).on("click", ".update", function (e) {
   var id = $(this).attr("data-id");
@@ -30,6 +32,7 @@ $(document).on("click", ".update", function (e) {
   $("#phone_u").val(phone);
   $("#city_u").val(city);
 });
+
 
 $(document).on("click", "#update", function (e) {
   var data = $("#update_form").serialize();
@@ -48,12 +51,14 @@ $(document).on("click", "#update", function (e) {
       }
     },
   });
+
 });
 $(document).on("click", ".delete", function () {
   var id = $(this).attr("data-id");
   $("#id_d").val(id);
 });
 $(document).on("click", "#delete", function () {
+
   $.ajax({
     url: "assets/js/student-backend/save.php",
     type: "POST",
