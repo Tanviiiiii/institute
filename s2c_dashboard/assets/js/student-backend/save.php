@@ -1,5 +1,5 @@
 <?php
-<
+
 include("../../../../includes/database.php");
 if (count($_POST) > 0) {
 	if ($_POST['type'] == 1) {
