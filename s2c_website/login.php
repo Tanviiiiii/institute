@@ -34,7 +34,9 @@ if (isset($_POST['submit'])) {
     <title>Login Form</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -50,7 +52,7 @@ if (isset($_POST['submit'])) {
             overflow-x: hidden;
             margin: 0;
             padding: 0;
-            background-image: linear-gradient(to right, #D500F9, #FFD54F);
+            /* background-image: linear-gradient(to right, #D500F9, #FFD54F); */
             background-repeat: no-repeat
         }
 
@@ -58,6 +60,21 @@ if (isset($_POST['submit'])) {
             body {
                 overflow-y: scroll;
             }
+        }
+
+        .ul-list {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            margin-top: 36px;
+        }
+
+        .ul-list li {
+            margin-top: 10px;
+        }
+
+        .hd {
+            font-family: 'Montserrat', sans-serif;
+
         }
 
         input,
@@ -68,7 +85,7 @@ if (isset($_POST['submit'])) {
             width: 100%;
             box-sizing: border-box;
             border: none !important;
-            border: 1px solid #F3E5F5 !important;
+            border: 2px solid #F3E5F5 !important;
             font-size: 16px !important;
             color: #000 !important;
             font-weight: 400
@@ -79,7 +96,7 @@ if (isset($_POST['submit'])) {
             -moz-box-shadow: none !important;
             -webkit-box-shadow: none !important;
             box-shadow: none !important;
-            border: 1px solid #D500F9 !important;
+            border: 2px solid #0093E9 !important;
             outline-width: 0;
             font-weight: 400
         }
@@ -96,6 +113,7 @@ if (isset($_POST['submit'])) {
             border: none;
             height: 100%;
             justify-content: center;
+
         }
 
         .card1 {
@@ -105,7 +123,9 @@ if (isset($_POST['submit'])) {
 
         .card2 {
             width: 50%;
-            background-image: linear-gradient(to right, #FFD54F, #D500F9);
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
             height: 800px;
         }
 
@@ -144,31 +164,31 @@ if (isset($_POST['submit'])) {
         .btn-color {
             border-radius: 50px;
             color: #fff;
-            background-image: linear-gradient(to right, #FFD54F, #D500F9);
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
             padding: 15px;
             cursor: pointer;
             border: none !important;
             margin-top: 40px;
-            transition: .3s ease;
+            transition: 1s ease;
         }
 
         .btn-color:hover {
             color: #fff;
-            background-image: linear-gradient(to right, #D500F9, #FFD54F)
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
         }
 
         .btn-white {
             border-radius: 50px;
-            color: #D500F9;
+            color: #0093E9;
             background-color: #fff;
             padding: 8px 40px;
             cursor: pointer;
-            border: 2px solid #D500F9 !important
+            border: 2px solid #0093E9 !important
         }
 
         .btn-white:hover {
             color: #fff;
-            background-image: linear-gradient(to right, #FFD54F, #D500F9)
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
         }
 
         a {
@@ -226,7 +246,7 @@ if (isset($_POST['submit'])) {
 
     <div class="container d-flex justify-content-center align-items-center px-5 py-4 mx-auto">
         <div class="card card0">
-            <div class="d-flex flex-lg-row flex-column-reverse">
+            <div class="d-flex flex-lg-row flex-column-reverse" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                 <div class="card card1">
                     <div class="row justify-content-center my-auto">
                         <div class="col-md-8 col-10 my-5">
@@ -250,9 +270,9 @@ if (isset($_POST['submit'])) {
                 </form>
                 <div class="card card2">
                     <div class="my-auto mx-md-5  right">
-                        <h3 class="text-white">We are more than just a Institute....</h3>
+                        <h1 class="text-white hd">We are more than just a Institute....</h1>
                         <medium class="text-black">
-                            <ul><strong> At Sumit Sharma Classes,<br>
+                            <ul class="text-white font-normal ul-list text-justify"><strong> At Sumit Sharma Classes,<br>
                                     <li>We provide best educational service with personal attention and bringing out the best from a child.
                                     <li>We always look forward to make education more interesting and developing the facts finding quality in students rather than being a rattan parrot.
                                     <li>We provide best educational service with very small batches and with individuals attention.
