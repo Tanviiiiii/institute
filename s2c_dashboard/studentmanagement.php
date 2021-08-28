@@ -1,31 +1,54 @@
 <?php
-include("../assets/js/student-backend/student-ajax.js");
-// echo "1";
+
+include("../includes/database.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <title>Student List</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="icon" href="./assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="./assets/vendor/nucleo/css/nucleo.css" type="text/css">
+
     <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
     <!-- Argon CSS -->
-    <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="examples/student-backend/student-style.css">
+    <link rel="stylesheet" href="./assets/vendor/nucleo/css/nucleo.css" type="text/css">
+    <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="./assets/js/student-backend/student-style.css">
 
+    <style>
+        * {
+            /* border: 1px solid red; */
+            box-sizing: border-box;
+        }
 
+        body {
+            font-size: 16px;
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                width: 970px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1 style="text-align:center;">Students-List</h1>
+    <h1 style="text-align:center;" class="display-4">Students-List</h1>
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
@@ -97,12 +120,12 @@ include("../assets/js/student-backend/student-ajax.js");
     </nav>
     <div class="container">
         <p id="success"></p>
-        <div class="table-wrapper">
+        <div class="table-wrapper table-responsive">
             <div class="table-title">
                 <div class="row">
 
                     <div class="col-sm-6">
-                        <h2>Students <b>List</b></h2>
+                        <h2 class="text-white">Students <b>List</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New User</span></a>
@@ -278,7 +301,9 @@ include("../assets/js/student-backend/student-ajax.js");
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="s2c_dashboard\assets\js\student-backend\student-ajax.js"></script>
+
+    <script src="./assets/js/student-backend/student-ajax.js"></script>
+
 
 </body>
 

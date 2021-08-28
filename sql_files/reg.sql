@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `register`
 --
-use institute;
+
 CREATE TABLE `register` (
   `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `firstname` varchar(255) NOT NULL,
