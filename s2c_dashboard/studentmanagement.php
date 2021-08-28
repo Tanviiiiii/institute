@@ -1,5 +1,5 @@
 <?php
-include("./assets/js/student-backend/student-ajax.js");
+include("../assets/js/student-backend/student-ajax.js");
 // echo "1";
 ?>
 <!DOCTYPE html>
@@ -15,7 +15,6 @@ include("./assets/js/student-backend/student-ajax.js");
     <!-- Icons -->
     <link rel="stylesheet" href="./assets/vendor/nucleo/css/nucleo.css" type="text/css">
     <link rel="stylesheet" href="./assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-    <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -279,7 +278,7 @@ include("./assets/js/student-backend/student-ajax.js");
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="examples/student-backend/student-ajax.js"></script>
+    <script src="s2c_dashboard\assets\js\student-backend\student-ajax.js"></script>
 
 </body>
 
