@@ -47,7 +47,7 @@ if (isset($_POST['submit'])) {
 
         body {
             color: #000;
-            overflow: hidden;
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
             background-image: linear-gradient(to right, #D500F9, #FFD54F);
@@ -224,7 +224,7 @@ if (isset($_POST['submit'])) {
 
 <body class='snippet-body'>
 
-    <div class="container d-flex justify-content-center align-items-center px-5 py-4 mx-auto h-100">
+    <div class="container d-flex justify-content-center align-items-center px-5 py-4 mx-auto">
         <div class="card card0">
             <div class="d-flex flex-lg-row flex-column-reverse">
                 <div class="card card1">
@@ -270,4 +270,5 @@ if (isset($_POST['submit'])) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
 </body>
+
 </html
