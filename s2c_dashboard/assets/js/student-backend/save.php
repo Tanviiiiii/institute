@@ -1,4 +1,5 @@
 <?php
+<
 include("../../../../includes/database.php");
 if (count($_POST) > 0) {
 	if ($_POST['type'] == 1) {
@@ -6,6 +7,7 @@ if (count($_POST) > 0) {
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
 		$city = $_POST['city'];
+
 		$sql = "INSERT INTO `crud`( `name`, `email`,`phone`,`city`) 
 		VALUES ('$name','$email','$phone','$city')";
 		if (mysqli_query($conn, $sql)) {

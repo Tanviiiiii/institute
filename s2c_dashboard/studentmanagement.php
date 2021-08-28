@@ -48,7 +48,7 @@ include("../includes/database.php");
 
 <body>
 
-    <h1 style="text-align:center;" class="display-4">Students-List</h1>
+    <!--<h1 style="text-align:center;" class="display-4">Students-List</h1>-->
     <!-- Sidenav -->
     <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
         <div class="scrollbar-inner">
@@ -303,10 +303,6 @@ include("../includes/database.php");
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
-
     <script src="./assets/js/student-backend/student-ajax.js"></script>
 </body>
-
 </html>
