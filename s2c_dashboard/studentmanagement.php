@@ -1,5 +1,5 @@
 <?php
-include 'examples/student-backend/database.php';
+include("./assets/js/student-backend/student-ajax.js");
 // echo "1";
 ?>
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ include 'examples/student-backend/database.php';
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="Calender.html" style="font-size:13px;">
+                                <a class="nav-link" href="calender.html" style="font-size:13px;">
                                     <i class="ni ni-calendar-grid-58 text-red" style="font-size:13px;"></i>
                                     <span class="nav-link-text"><strong>Calendar</strong></span>
                                 </a>
@@ -86,7 +86,7 @@ include 'examples/student-backend/database.php';
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="logout.php" style="font-size: 13px;">
+                                <a class="nav-link" href="../s2c_website/logout.php" style="font-size: 13px;">
                                     <i class="ni ni-button-power text-red" style="font-size: 13px;"></i>
                                     <span class="nav-link-text"><strong>Logout</strong></span>
                                 </a>
