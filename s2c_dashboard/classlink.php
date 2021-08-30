@@ -1,5 +1,24 @@
+<?php
+include("../includes/database.php");
+if (isset($_POST['submit'])) {
+  $class = $_POST['class'];
+  $subject = $_POST['subject'];
+  $chapter = $_POST['chapter'];
+  $link = $_POST['link'];
+
+  $query = "INSERT INTO classlink(class,subject,chapter,link) VALUES('{$class}','{$subject}','{$chapter}','{$link}')";
+  $result = mysqli_query($conn, $query);
+
+  if ($result) {
+    echo "<script>alert('succesfully inserted record');</script>";
+  } else {
+    die("Cannot insert record" . mysqli_error($conn));
+  }
+}
+?>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -70,7 +89,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="classlink.html">
+                <a class="nav-link" href="classlink.php">
                   <i class="ni ni-bell-55 text-red"></i>
                   <span class="nav-link-text"> <strong>class Link</strong></span>
                 </a>
@@ -96,8 +115,7 @@
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
               <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
-                data-target="#sidenav-main">
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
@@ -111,8 +129,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-bell-55"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
@@ -224,8 +241,7 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-ungroup"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
@@ -272,8 +288,7 @@
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
             <li class="nav-item dropdown">
-              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
@@ -321,6 +336,25 @@
               </nav>
             </div>
           </div>
+          <h1>CLASS LINK</h1>
+
+          <form name="form1" id="form1" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+            Class: <select name="class" id="class">
+              <option value="" selected="selected">Select class</option>
+            </select>
+            <br><br>
+            Subject: <select name="subject" id="subject">
+              <option value="" selected="selected">select subject</option>
+            </select>
+            <br><br>
+            Chapter: <select name="chapter" id="chapter">
+              <option value="" selected="selected">select topic </option>
+            </select>
+            <br><br>
+            <textarea name="link" id="link" cols="30" rows="10"></textarea>
+            <input type="submit" value="Submit" name="submit">
+          </form>
+
           <!-- Argon Scripts -->
           <!-- Core -->
           <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
@@ -333,116 +367,7 @@
           <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
           <!-- Argon JS -->
           <script src="assets/js/argon.js?v=1.2.0"></script>
+          <script src="./assets/js/classlink.js" async></script>
 </body>
-<head>
-  <script>
-  var classObject = {
-  "12TH": {
-    "PHYSICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "CHEMISTRY": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "BIOLOGY": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "ACCOUNTS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "BUISNESS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"]
-  },
-  "11TH": {
-    "PHYSICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "CHEMISTRY": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "BIOLOGY":  ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "ACCOUNTS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"],
-    "BUISNESS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8", "CH9", "CH10"]
-  },
-  "10TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "9TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "8TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "7TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "6TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "5TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "4TH": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "3rd": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "2nd": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  },
-  "1st": {
-    "SCIENCE": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"],
-    "MATHEMATICS": ["CH1", "CH2", "CH3", "CH4", "CH5", "CH6", "CH7", "CH8" , "CH9", "CH10"]
-  }
-}
-  window.onload = function() {
-    var classSel = document.getElementById("class");
-    var subjectSel = document.getElementById("subject");
-    var chapterSel = document.getElementById("chapter");
-    for (var x in classObject) {
-      classSel.options[classSel.options.length] = new Option(x, x);
-    }
-    classSel.onchange = function() {
-      //empty Chapters- and subject- dropdowns
-      subjectSel.length = 1;
-      chapterSel.length = 1;
-      //display correct values
-      for (var y in classObject[this.value]) {
-        subjectSel.options[subjectSel.options.length] = new Option(y, y);
-      }
-    }
-    subjectSel.onchange = function() {
-      //empty Chapters dropdown
-      chapterSel.length = 1;
-      //display correct values
-      var z = classObject[classSel.value][this.value];
-      for (var i = 0; i<z.length; i++) {
-        chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
-      }
-    }
-  }
-  </script>
-  </head>   
-  <body>
-  
-  <h1>CLASS LINK</h1>
-  
-  <form name="form1" id="form1" action="">
-  Class: <select name="class" id="class">
-      <option value="" selected="selected">Select class</option>
-    </select>
-    <br><br>
-  Subject: <select name="subject" id="subject">
-      <option value="" selected="selected">select subject</option>
-    </select>
-    <br><br>
-  Chapter: <select name="chapter" id="chapter">
-      <option value="" selected="selected">select topic </option>
-    </select>
-    <br><br>
-    </form>
-    <form method="post" enctype="multipart/form-data" action ="upload-script.php">
-      <input type="file" name ="file">
-      <input type="submit" name="submit">
-    </form> 
-  </body>
+
 </html>
