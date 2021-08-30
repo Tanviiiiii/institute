@@ -102,7 +102,7 @@ include("../includes/database.php");
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="classlink.html" style="font-size:13px;">
+                                <a class="nav-link" href="classlink.php" style="font-size:13px;">
                                     <i class="ni ni-bell-55 text-red" style="font-size:13px;"></i>
                                     <span class="nav-link-text"> <strong>class Link</strong></span>
                                 </a>
@@ -305,4 +305,5 @@ include("../includes/database.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="./assets/js/student-backend/student-ajax.js"></script>
 </body>
+
 </html>

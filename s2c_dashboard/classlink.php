@@ -89,7 +89,7 @@ if (isset($_POST['submit'])) {
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="classlink.html">
+                <a class="nav-link" href="classlink.php">
                   <i class="ni ni-bell-55 text-red"></i>
                   <span class="nav-link-text"> <strong>class Link</strong></span>
                 </a>
