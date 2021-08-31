@@ -34,6 +34,7 @@ if (isset($_POST['submit'])) {
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+
 </head>
 
 <body>
@@ -322,7 +323,7 @@ if (isset($_POST['submit'])) {
       </div>
     </nav>
     <!-- Header -->
-    <div class="header bg-primary">
+    <div class="header bg-primary" style="height:200px;">
       <div class="container">
         <div class="header-body">
           <div class="row align-items-center py-4">
@@ -336,38 +337,58 @@ if (isset($_POST['submit'])) {
               </nav>
             </div>
           </div>
-          <h1>CLASS LINK</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1 class="text-center p-3">CLASS LINK</h1>
 
-          <form name="form1" id="form1" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            Class: <select name="class" id="class">
+      <form name="form1" id="form1" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-control" style="height:calc(2.5em + 1.25rem + 5px)">
+        <div class="row justify-content-center align-items-center">
+          <div class="col">
+            Class: <select name="class" id="class" class="form-select">
               <option value="" selected="selected">Select class</option>
             </select>
-            <br><br>
-            Subject: <select name="subject" id="subject">
+          </div>
+          <div class="col">
+            Subject: <select name="subject" id="subject" class="form-select">
               <option value="" selected="selected">select subject</option>
             </select>
-            <br><br>
-            Chapter: <select name="chapter" id="chapter">
+          </div>
+          <div class="col">
+            Chapter: <select name="chapter" id="chapter" class="form-select">
               <option value="" selected="selected">select topic </option>
             </select>
-            <br><br>
-            <textarea name="link" id="link" cols="30" rows="10"></textarea>
-            <input type="submit" value="Submit" name="submit">
-          </form>
 
-          <!-- Argon Scripts -->
-          <!-- Core -->
-          <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-          <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-          <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-          <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-          <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-          <!-- Optional JS -->
-          <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-          <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-          <!-- Argon JS -->
-          <script src="assets/js/argon.js?v=1.2.0"></script>
-          <script src="./assets/js/classlink.js" async></script>
+          </div>
+          <div class="col">
+            <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <textarea class="form-control" name="link" id="link" cols="100" rows="10" style="resize:no;" required></textarea>
+          </div>
+        </div>
+        <br>
+
+
+      </form>
+    </div>
+    <!-- Argon Scripts -->
+    <!-- Core -->
+    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
+    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+    <!-- Optional JS -->
+    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
+    <!-- Argon JS -->
+    <script src="assets/js/argon.js?v=1.2.0"></script>
+    <script src="./assets/js/classlink.js" async></script>
 </body>
 
 </html>

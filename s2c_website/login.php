@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
         textarea {
             background-color: #F3E5F5;
             border-radius: 50px !important;
-            padding: 12px 15px 12px 15px !important;
+            padding: 6px 10px 6px 10px !important;
             width: 100%;
             box-sizing: border-box;
             border: none !important;
@@ -211,11 +211,13 @@ if (isset($_POST['submit'])) {
         @media screen and (max-width: 992px) {
             .card1 {
                 width: 100%;
-                padding: 40px 30px 10px 30px
+                padding: 10px;
+                order: 2;
             }
 
             .card2 {
-                width: 100%
+                width: 100%;
+                order: 1;
             }
 
             .right {
@@ -230,7 +232,7 @@ if (isset($_POST['submit'])) {
             }
 
             .card2 {
-                padding: 50px
+                padding: 10px
             }
 
             .right {
