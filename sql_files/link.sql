@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `link`
 --
-
+use institute;
 CREATE TABLE `classlink` (
   `id` int(11) NOT NULL,
   `class` varchar(255) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `classlink` (
 -- Dumping data for table `link`
 --
 
-INSERT INTO `link` (`id`, `class`, `subject`, `chapter`, `link`) VALUES
+INSERT INTO `classlink` (`id`, `class`, `subject`, `chapter`, `link`) VALUES
 (1, '11TH', 'CHEMISTRY', 'CH1', 'http://www.gogle.com/');
 
 --
@@ -49,7 +49,7 @@ INSERT INTO `link` (`id`, `class`, `subject`, `chapter`, `link`) VALUES
 --
 -- Indexes for table `link`
 --
-ALTER TABLE `link`
+ALTER TABLE `classlink`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -59,7 +59,7 @@ ALTER TABLE `link`
 --
 -- AUTO_INCREMENT for table `link`
 --
-ALTER TABLE `link`
+ALTER TABLE `classlink`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
