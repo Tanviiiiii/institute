@@ -1,6 +1,6 @@
 <?php
 session_start(); //session is a way to store information (in variables) to be used across multiple pages.  
-session_unset();
-
+session_unset($_SESSION['username']);
+session_unset($_SESSION['loggedin']);
 session_destroy();
 header("Location: index.html "); //use for the redirection to some page  
