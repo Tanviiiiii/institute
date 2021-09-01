@@ -1,5 +1,5 @@
 <?php
-include("../includes/database.php");
+include("includes/database.php");
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = "";
 function test_input($data)
 {
@@ -11,6 +11,7 @@ function test_input($data)
 }
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
+  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('?','?','?','?','?','?','?')");
   if (empty($_POST['firstname'])) {
     $firstnameErr = "Name is Required";
   } else {
@@ -54,17 +55,19 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
 
 
   $sql = "SELECT * FROM register WHERE email='{$email}' or phone='{$phone}'";
-  $res = mysqli_query($conn, $sql);
-  if (mysqli_num_rows($res) > 0) {
-    $row = mysqli_fetch_assoc($res);
+  $res = $conn->query($sql);
+  if ($res->num_rows > 0) {
+    $row = $res->fetch_assoc();
     if ($email == $row['email']) {
       echo "<script>window.alert('username already exists');</script>";
     } else if ($phone == $row['phone']) {
       echo "<script>window.alert('phone number already exists');</script>";
     }
   } else {
-    $query = "INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('{$firstname}','{$lastname}','{$email}','{$password}','{$phone}','{$gender}','{$subject}')";
-    $res = mysqli_query($conn, $query);
+    // $query = "INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('{$firstname}','{$lastname}','{$email}','{$password}','{$phone}','{$gender}','{$subject}')";
+
+    $stmt->bind_param("sssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject);
+    $res = $stmt->execute();
 
     if (!$res) {
       die("Query not inserted");
@@ -77,6 +80,8 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
         </div>
       </div>
 <?php
+      $stmt->close();
+      $conn->close();
     }
   }
 }

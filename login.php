@@ -1,31 +1,35 @@
 <?php
 session_start();
-include("../includes/database.php");
+include("includes/database.php");
+if (!isset($_SESSION['loggedin'])) {
+    if (isset($_POST['submit'])) {
+        $username =  $conn->real_escape_string($_POST['uname']);
+        $password =  $conn->real_escape_string($_POST['psw']);
+        $query = "SELECT id FROM register WHERE firstname='{$username}' AND password='{$password}'";
 
-if (isset($_POST['submit'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['uname']);
-    $password = mysqli_real_escape_string($conn, $_POST['psw']);
-    $query = "SELECT firstname,password FROM register WHERE firstname='{$username}' AND password='{$password}'";
-
-    $result = mysqli_query($conn, $query);
-    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    if ($count == 1) {
-        $_SESSION['username'] = $username;
-        $_SESSION['loggedin'] = true;
-        echo "User logged in ";
-        header("location:..\s2c_dashboard\dashboard.html");
-    } else {
+        $result = $conn->query($query);
+        // $row = $result->fetch_assoc();
+        $count = $result->num_rows;
+        if ($count == 1) {
+            $_SESSION['username'] = $username;
+            $_SESSION['loggedin'] = true;
+            echo "User logged in ";
+            header("location: dashboard/dashboard.php");
+        } else {
 ?>
-        <div class="container mt-md-4 mt-2">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>No Username Found!</strong>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="container mt-md-4 mt-2">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>No Username Found!</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
             </div>
-        </div>
 <?php
+        }
     }
+} else {
+    header("refresh=2;dashboard/dashboard.php");
 }
+
 ?>
 
 <!doctype html>
@@ -262,7 +266,7 @@ if (isset($_POST['submit'])) {
                                 <div class="form-group"><label class="form-control-label text-muted">Username</label><input type="text" id="uname" name="uname" placeholder="Enter Username" required="required" class="form-control"></div>
                                 <div class="form-group"><label class="form-control-label text-muted">Password</label><input type="password" id="psw" name="psw" placeholder="Enter Password" class="form-control" required></div>
                                 <div class="row justify-content-center my-3 px-3">
-                                    <input type="submit" class="btn-block btn-color text-decoration-none text-center text-white" name="submit" value="Login to s2c" />
+                                    <input type="submit" class="btn-block btn-color text-decoration-none text-center text-white" name="submit" value="Login" />
                                 </div>
                                 <div class="row d-flex justify-content-center my-2"><a href="#" class="text-center"><small class="text-muted">Forgot Password?</small></a>
                                 </div>

@@ -1,16 +1,22 @@
 <?php
-include("../includes/database.php");
+
+include("../includes/session_check.php");
+
 if (isset($_POST['submit'])) {
+  $stmt = $conn->prepare("INSERT INTO classlink(class,subject,chapter,link) VALUES(?,?,?,?)");
+  $stmt->bind_param("ssss", $class, $subject, $chapter, $link);
+
   $class = $_POST['class'];
   $subject = $_POST['subject'];
   $chapter = $_POST['chapter'];
   $link = $_POST['link'];
 
-  $query = "INSERT INTO classlink(class,subject,chapter,link) VALUES('{$class}','{$subject}','{$chapter}','{$link}')";
-  $result = mysqli_query($conn, $query);
+  $result = $stmt->execute();
 
   if ($result) {
     echo "<script>alert('succesfully inserted record');</script>";
+    $stmt->close();
+    $conn->close();
   } else {
     die("Cannot insert record" . mysqli_error($conn));
   }
@@ -39,73 +45,7 @@ if (isset($_POST['submit'])) {
 
 <body>
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="dashboard.html">
-          <img src="assets/img/logo.jpeg" class="navbar-brand-img" alt="...">
-          <p class="text-dark">S2C</p>
-        </a>
-      </div>
-      <div class="navbar-inner">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav"><strong>
-              <li class="nav-item">
-                <a class="nav-link active" href="dashboard.html">
-                  <i class="ni ni-tv-2 text-primary text-red"></i>
-                  <span class="nav-link-text"><strong>Dashboard</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="calender.html">
-                  <i class="ni ni-calendar-grid-58 text-red"></i>
-                  <span class="nav-link-text"><strong>Calendar</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studentmanagement.php">
-                  <i class="ni ni-single-02 text-red"></i>
-                  <span class="nav-link-text"><strong>Student Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feemanagement.html">
-                  <i class="ni ni-credit-card text-red"></i>
-                  <span class="nav-link-text"> <strong>Fee Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studymaterial.html">
-                  <i class="ni ni-single-copy-04 text-red"></i>
-                  <span class="nav-link-text"> <strong>Study material/notes section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="assignment.html">
-                  <i class="ni ni-collection text-red"></i>
-                  <span class="nav-link-text"> <strong>Assignment section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="classlink.php">
-                  <i class="ni ni-bell-55 text-red"></i>
-                  <span class="nav-link-text"> <strong>class Link</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../s2c_website/logout.php">
-                  <i class="ni ni-button-power text-red"></i>
-                  <span class="nav-link-text"><strong>Logout</strong></span>
-                </a>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->

@@ -1,3 +1,6 @@
+<?php
+include("../includes/session_check.php");
+?>
 <!DOCTYPE html>
 <html>
 
@@ -19,73 +22,7 @@
 
 <body>
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="dashboard.html">
-          <img src="assets/img/logo.jpeg" class="navbar-brand-img" alt="...">
-          <p class="text-dark">S2C</p>
-        </a>
-      </div>
-      <div class="navbar-inner">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav"><strong>
-              <li class="nav-item">
-                <a class="nav-link active" href="dashboard.html">
-                  <i class="ni ni-tv-2 text-primary text-red"></i>
-                  <span class="nav-link-text"><strong>Dashboard</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="calender.html">
-                  <i class="ni ni-calendar-grid-58 text-red"></i>
-                  <span class="nav-link-text"><strong>Calendar</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studentmanagement.php">
-                  <i class="ni ni-single-02 text-red"></i>
-                  <span class="nav-link-text"><strong>Student Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feemanagement.html">
-                  <i class="ni ni-credit-card text-red"></i>
-                  <span class="nav-link-text"> <strong>Fee Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studymaterial.html">
-                  <i class="ni ni-single-copy-04 text-red"></i>
-                  <span class="nav-link-text"> <strong>Study material/notes section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="assignment.html">
-                  <i class="ni ni-collection text-red"></i>
-                  <span class="nav-link-text"> <strong>Assignment section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="classlink.php">
-                  <i class="ni ni-bell-55 text-red"></i>
-                  <span class="nav-link-text"> <strong>class Link</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../s2c_website/logout.php">
-                  <i class="ni ni-button-power text-red"></i>
-                  <span class="nav-link-text"><strong>Logout</strong></span>
-                </a>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
@@ -96,8 +33,7 @@
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
               <!-- Sidenav toggler -->
-              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin"
-                data-target="#sidenav-main">
+              <div class="pr-3 sidenav-toggler sidenav-toggler-dark" data-action="sidenav-pin" data-target="#sidenav-main">
                 <div class="sidenav-toggler-inner">
                   <i class="sidenav-toggler-line"></i>
                   <i class="sidenav-toggler-line"></i>
@@ -111,8 +47,7 @@
               </a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-bell-55"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-xl  dropdown-menu-right  py-0 overflow-hidden">
@@ -224,8 +159,7 @@
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="ni ni-ungroup"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-lg dropdown-menu-dark bg-default  dropdown-menu-right ">
@@ -272,8 +206,7 @@
           </ul>
           <ul class="navbar-nav align-items-center  ml-auto ml-md-0 ">
             <li class="nav-item dropdown">
-              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+              <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
                     <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
@@ -321,7 +254,7 @@
               </nav>
             </div>
           </div>
-            
+
           <!-- Argon Scripts -->
 
           <!-- Core -->
@@ -337,4 +270,5 @@
           <script src="assets/js/argon.js?v=1.2.0"></script>
           <script src='lib/moment.min.js'></script>
 </body>
+
 </html>

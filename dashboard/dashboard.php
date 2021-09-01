@@ -1,13 +1,5 @@
 <?php
-session_start();
-include("../includes/database.php");
-if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true) {
-  if (isset($_SESSION['loggedin']) !== null) {
-    echo "<script>alert('user not loggedin');</script>";
-    header("refresh:2;url=../s2c_website/login.php");
-    exit;
-  }
-}
+include("../includes/session_check.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +8,7 @@ if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>S2C Dashboard</title>
+  <title><?php echo "Welcome " . $_SESSION['username']; ?></title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -32,73 +24,7 @@ if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true) {
 
 <body>
   <!-- Sidenav -->
-  <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-    <div class="scrollbar-inner">
-      <!-- Brand -->
-      <div class="sidenav-header  align-items-center">
-        <a class="navbar-brand" href="dashboard.html">
-          <img src="assets/img/logo.jpeg" class="navbar-brand-img" alt="...">
-          <p class="text-dark">S2C</p>
-        </a>
-      </div>
-      <div class="navbar-inner">
-        <!-- Collapse -->
-        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-          <!-- Nav items -->
-          <ul class="navbar-nav"><strong>
-              <li class="nav-item">
-                <a class="nav-link active" href="dashboard.html">
-                  <i class="ni ni-tv-2 text-primary text-red"></i>
-                  <span class="nav-link-text"><strong>Dashboard</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="calender.html">
-                  <i class="ni ni-calendar-grid-58 text-red"></i>
-                  <span class="nav-link-text"><strong>Calendar</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studentmanagement.php">
-                  <i class="ni ni-single-02 text-red"></i>
-                  <span class="nav-link-text"><strong>Student Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="feemanagement.html">
-                  <i class="ni ni-credit-card text-red"></i>
-                  <span class="nav-link-text"> <strong>Fee Managment</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="studymaterial.html">
-                  <i class="ni ni-single-copy-04 text-red"></i>
-                  <span class="nav-link-text"> <strong>Study material/notes section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="assignment.html">
-                  <i class="ni ni-collection text-red"></i>
-                  <span class="nav-link-text"> <strong>Assignment section</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="classlink.php">
-                  <i class="ni ni-bell-55 text-red"></i>
-                  <span class="nav-link-text"> <strong>class Link</strong></span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../s2c_website/logout.php">
-                  <i class="ni ni-button-power text-red"></i>
-                  <span class="nav-link-text"><strong>Logout</strong></span>
-                </a>
-              </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
   <div class="main-content" id="panel">
     <!-- Topnav -->
@@ -342,7 +268,8 @@ if (!isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != true) {
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Heading 1</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0"><?php echo $username; ?></h5>
+                      </h5>
                       <span class="h2 font-weight-bold mb-0">32345</span>
                     </div>
                     <div class="col-auto">
