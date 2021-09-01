@@ -1,2 +1,11 @@
 *.txt
-.
+dashboard/assets/uploads/assignments/*.jpeg
+dashboard/assets/uploads/assignments/*.jpg
+dashboard/assets/uploads/assignments/*.png
+dashboard/assets/uploads/assignments/*.docx
+dashboard/assets/uploads/assignments/*.doc
+dashboard/assets/uploads/student/*.jpeg
+dashboard/assets/uploads/student/*.jpg
+dashboard/assets/uploads/student/*.png
+dashboard/assets/uploads/student/*.docx
+dashboard/assets/uploads/student/*.doc
