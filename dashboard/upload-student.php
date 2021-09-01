@@ -1,12 +1,12 @@
 <?php
 include("../includes/session_check.php");
-$target_dir = "assets/uploads/assignments/";
+$target_dir = "assets/uploads/student/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 if (isset($_POST['submit'])) {
-    $stmt = $conn->prepare("INSERT INTO assignment(class,subject,chapter,concat) VALUES(?,?,?,?)");
+    $stmt = $conn->prepare("INSERT INTO studyMaterial(class,subject,chapter,concat) VALUES(?,?,?,?)");
 
 
     $class = $_POST['class'];
@@ -228,7 +228,7 @@ if (isset($_POST['submit'])) {
     $result = $stmt->execute();
     if ($result) {
         echo "<script>alert('succesfully inserted record');</script>";
-        header("refresh:2;url= assignment.php");
+        header("refresh:2;url= studymaterial.php");
         $stmt->close();
         $conn->close();
     } else {

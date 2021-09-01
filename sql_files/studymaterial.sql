@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2021 at 04:27 PM
+-- Generation Time: Sep 01, 2021 at 05:08 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `assignment`
+-- Table structure for table `studymaterial`
 --
 
-CREATE TABLE `assignment` (
+CREATE TABLE `studymaterial` (
   `id` int(11) NOT NULL,
   `class` varchar(255) NOT NULL,
   `subject` varchar(255) NOT NULL,
@@ -36,19 +36,20 @@ CREATE TABLE `assignment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `assignment`
+-- Dumping data for table `studymaterial`
 --
 
-
+INSERT INTO `studymaterial` (`id`, `class`, `subject`, `chapter`, `concat`) VALUES
+(1, '9TH', 'MATHEMATICS', 'CH1', 'assets/uploads/studentgyanesh.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `assignment`
+-- Indexes for table `studymaterial`
 --
-ALTER TABLE `assignment`
+ALTER TABLE `studymaterial`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +57,10 @@ ALTER TABLE `assignment`
 --
 
 --
--- AUTO_INCREMENT for table `assignment`
+-- AUTO_INCREMENT for table `studymaterial`
 --
-ALTER TABLE `assignment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `studymaterial`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -34,12 +34,12 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="assets/img/theme/team-1.jpg" class="avatar rounded-circle">
+                                        <img alt="Image placeholder" src="../assets/img/sumit.jpg" class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div>
-                                                <h4 class="mb-0 text-sm">Admin</h4>
+                                                <h4 class="mb-0 text-sm"><?php echo $_SESSION['username']; ?></h4>
                                             </div>
                                             <div class="text-right text-muted">
                                                 <small>2 hrs ago</small>
@@ -91,7 +91,7 @@
                                 <div class="row align-items-center">
                                     <div class="col-auto">
                                         <!-- Avatar -->
-                                        <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" class="avatar rounded-circle">
+                                        <img alt="Image placeholder" src="../assets/img/sumit.jpg" class="avatar rounded-circle">
                                     </div>
                                     <div class="col ml--2">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -181,10 +181,10 @@
                     <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media align-items-center">
                             <span class="avatar avatar-sm rounded-circle">
-                                <img alt="Image placeholder" src="assets/img/theme/team-4.jpg">
+                                <img alt="Image placeholder" src="../assets/img/sumit.jpg">
                             </span>
                             <div class="media-body  ml-2  d-none d-lg-block">
-                                <span class="mb-0 text-sm  font-weight-bold">Admin</span>
+                                <span class="mb-0 text-sm  font-weight-bold"><?php echo $_SESSION['username']; ?></span>
                             </div>
                         </div>
                     </a>
