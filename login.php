@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     if (isset($_POST['submit'])) {
         $username =  $conn->real_escape_string($_POST['uname']);
         $password =  $conn->real_escape_string($_POST['psw']);
-        $query = "SELECT id FROM register WHERE firstname='{$username}' AND password='{$password}'";
+        $query = "SELECT firstname,lastname FROM register WHERE firstname='{$username}' AND password='{$password}'";
 
         $result = $conn->query($query);
         // $row = $result->fetch_assoc();
@@ -27,7 +27,7 @@ if (!isset($_SESSION['loggedin'])) {
         }
     }
 } else {
-    header("refresh=2;dashboard/dashboard.php");
+    header("refresh=2;url=dashboard/dashboard.php");
 }
 
 ?>

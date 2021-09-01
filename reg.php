@@ -11,7 +11,7 @@ function test_input($data)
 }
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
-  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('?','?','?','?','?','?','?')");
+  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES(?,?,?,?,?,?,?)");
   if (empty($_POST['firstname'])) {
     $firstnameErr = "Name is Required";
   } else {
@@ -80,6 +80,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
         </div>
       </div>
 <?php
+      header("refresh:2;url=./login.php");
       $stmt->close();
       $conn->close();
     }

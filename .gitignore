@@ -1,2 +1,6 @@
 *.txt
-.
+dashboard/assets/img/uploads/*.jpeg
+dashboard/assets/img/uploads/*.jpg
+dashboard/assets/img/uploads/*.png
+dashboard/assets/img/uploads/*.docx
+dashboard/assets/img/uploads/*.doc
