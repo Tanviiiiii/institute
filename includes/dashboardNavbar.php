@@ -13,43 +13,43 @@
          <!-- Nav items -->
          <ul class="navbar-nav"><strong>
              <li class="nav-item">
-               <a class="nav-link active" href="dashboard.php">
+               <a class="nav-link <?php echo $page == "dashboard" ? "active" : ""; ?>" href="dashboard.php">
                  <i class="ni ni-tv-2 text-primary text-red"></i>
                  <span class="nav-link-text"><strong>Dashboard</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="calender.php">
+               <a class="nav-link <?php echo $page == "calender" ? "active" : ""; ?>" href="calender.php">
                  <i class="ni ni-calendar-grid-58 text-red"></i>
                  <span class="nav-link-text"><strong>Calendar</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="studentmanagement.php">
+               <a class="nav-link <?php echo $page == "Student List" ? "active" : ""; ?>" href="studentmanagement.php">
                  <i class="ni ni-single-02 text-red"></i>
                  <span class="nav-link-text"><strong>Student Managment</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="feemanagement.php">
+               <a class="nav-link <?php echo $page == "fee" ? "active" : ""; ?>" href="feemanagement.php">
                  <i class="ni ni-credit-card text-red"></i>
                  <span class="nav-link-text"> <strong>Fee Managment</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="studymaterial.php">
+               <a class="nav-link <?php echo $page == "study material" ? "active" : ""; ?>" href="studymaterial.php">
                  <i class="ni ni-single-copy-04 text-red"></i>
                  <span class="nav-link-text"> <strong>Study material/notes section</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="assignment.php">
+               <a class="nav-link <?php echo $page == "assignment" ? "active" : ""; ?>" href="assignment.php">
                  <i class="ni ni-collection text-red"></i>
                  <span class="nav-link-text"> <strong>Assignment section</strong></span>
                </a>
              </li>
              <li class="nav-item">
-               <a class="nav-link" href="classlink.php">
+               <a class="nav-link <?php echo $page == "classlink" ? "active" : ""; ?>" href="classlink.php">
                  <i class="ni ni-bell-55 text-red"></i>
                  <span class="nav-link-text"> <strong>class Link</strong></span>
                </a>
