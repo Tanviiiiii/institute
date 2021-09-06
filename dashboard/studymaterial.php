@@ -1,7 +1,7 @@
 <?php
 
 include("../includes/session_check.php");
-
+$page = "study material";
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ include("../includes/session_check.php");
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>S2C Dashboard</title>
+  <title>S2C <?php echo $page; ?></title>
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
