@@ -4,7 +4,7 @@ $page = "show study";
 
 $query = "SELECT * FROM studymaterial";
 $res = $conn->query($query);
-$row = $res->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,7 +37,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 
         <?php include("../../includes/dashboardHeader.php"); ?>
         <div class="container position-relative" style="top: -36%;">
-            <h1 class="text-center p-3 text-white">Show Time Table</h1>
+            <h1 class="text-center p-3 text-white">Show Study Materail</h1>
 
         </div>
         <div class="container">
@@ -60,7 +60,10 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
                             <td><?php echo $row['class']; ?></td>
                             <td><?php echo $row['subject']; ?></td>
                             <td><?php echo $row['chapter']; ?></td>
-                            <td><?php echo $row['concat']; ?></td>
+                            <td>
+                                <a href="  ../<?php echo $row['concat']; ?>">FILE</a>
+
+                            </td>
                             <td>
                                 <a href="update-study.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Update</a>
                             </td>

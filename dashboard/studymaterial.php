@@ -40,36 +40,40 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">Student Material Section</h1>
 
-      <form name="form3" id="form3" action="upload-student.php" method="POST" class="form-control" style="height:calc(5.5em + 1.25rem + 5px);border:0;" enctype="multipart/form-data">
+      <form name="form3" id="form3" action="upload-student.php" method="POST" class="form-control" style="height:100%;border:0;" enctype="multipart/form-data">
         <div class="row justify-content-center align-items-center">
-          <div class="col">
-            Class: <select name="class" id="class" class="form-select" required>
-              <option value="" selected="selected">Select class</option>
-            </select>
-          </div>
-          <div class="col">
-            Subject: <select name="subject" id="subject" class="form-select">
-              <option value="" selected="selected">select subject</option>
-            </select>
-          </div>
-          <div class="col">
-            Chapter: <select name="chapter" id="chapter" class="form-select">
-              <option value="" selected="selected">select topic </option>
-            </select>
-          </div>
-          <div class="col">
-            <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-dark" style="width: 242px;max-width:100%;" required>
-          </div>
-          <div class="col">
-            <input type="submit" value="Submit" name="submit" class="btn btn-success">
-            <a href="show/show-study.php">SHOW MATERIALS</a>
+          <div class="row">
+            <div class="col-md-3">
+              Class: <select name="class" id="class" class="form-select" required>
+                <option value="" selected="selected">Select class</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              Subject: <select name="subject" id="subject" class="form-select">
+                <option value="" selected="selected">select subject</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              Chapter: <select name="chapter" id="chapter" class="form-select">
+                <option value="" selected="selected">select topic </option>
+              </select>
+            </div>
+            <div class="col-md-3 mt-2">
+              <input type="file" name="fileToUpload" id="fileToUpload" class="btn btn-dark" style="width: 242px;max-width:100%;" required>
+            </div>
+            <div class="row mt-4 mt-0">
+              <div class="col">
+                <input type="submit" value="Submit" name="submit" class="btn btn-success">
+                <a href="show/show-study.php">SHOW MATERIALS</a>
+              </div>
+            </div>
           </div>
         </div>
       </form>
     </div>
   </div>
   <?php include("../includes/scripts.php"); ?>
-  <script src="./assets/js/timetable.js" async></script>
+  <script src="./assets/js/classlink.js"></script>
 </body>
 
 </html>

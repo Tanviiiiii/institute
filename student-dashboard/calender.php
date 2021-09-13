@@ -45,7 +45,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
       <h1 class="text-center p-3 text-white">Time Table</h1>
 
 
-      <table class="table table-dark table-striped table-hover">
+      <table class="table table-dark table-striped table-hover mx-auto w-50">
         <thead>
           <tr>
             <th>Class</th>

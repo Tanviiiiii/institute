@@ -1,4 +1,4 @@
-<div class="header bg-primary" style="height:150px;">
+<div class="header" style="height:200px;">
     <div class="container">
         <div class="header-body">
             <div class="row align-items-center py-4">

@@ -1,7 +1,7 @@
 <?php
 
 include("../includes/session_check.php");
-$page = "study material";
+$page = "studymaterial";
 $class = $_SESSION['class'];
 $query = "SELECT * FROM studymaterial WHERE class={$class}";
 $res = $conn->query($query);
@@ -41,7 +41,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">Student Material Section</h1>
-      <table class="table table-dark table-striped table-hover">
+      <table class="table table-dark table-striped table-hover mx-auto w-50">
         <thead>
           <tr>
             <th>Class</th>
