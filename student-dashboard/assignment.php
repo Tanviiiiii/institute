@@ -35,7 +35,7 @@ $res = $conn->query($query);
   <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
   <div class="main-content" id="panel" style="background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left:15%;
 ">
     <!-- Topnav -->
     <?php include("../includes/dashboardTopNav.php"); ?>
@@ -43,7 +43,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">Assignment Section</h1>
-      <table class="table table-dark table-striped table-hover mx-auto w-50">
+      <table class="table table-dark table-striped table-hover mx-auto w-50 text-center">
         <thead>
           <tr>
             <th>Class</th>
@@ -58,7 +58,17 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
               <td scope="row"><?php echo $row['class']; ?></td>
               <td><?php echo $row['subject']; ?></td>
               <td><?php echo $row['chapter']; ?></td>
-              <td><img src="../dashboard/<?php echo $row['concat']; ?> " alt="image" width="100" height="100"></td>
+              <td>
+                <a href="../dashboard/<?php echo $row['concat']; ?>" class="text-white" download>
+                  <?php
+                  $path = "../dashboard/";
+                  $path = $path .  $row['concat'];
+                  $ext = pathinfo($path, PATHINFO_EXTENSION);
+                  $name = basename($path, $ext);
+                  echo $name;
+                  ?>
+                </a>
+              </td>
             </tr>
           <?php endwhile; ?>
         </tbody>

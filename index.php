@@ -236,7 +236,7 @@
               rounded
               mt-lg-2 mt-5
             ">
-          <form class="contact-form">
+          <form class="contact-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
             <div class="form-row">
               <div class="col-12">
                 <label for="Name">Name: </label>
@@ -253,7 +253,7 @@
               <div class="col-12 mt-3">
                 <textarea class="form-control" name="Message" rows="6" placeholder="Enter message here.."></textarea>
               </div>
-              <button type="submit" class="btn btn-info text-white mt-3 ml-1">
+              <button type="submit" class="btn btn-info text-white mt-3 ml-1" name="send">
                 Send Message
               </button>
             </div>
@@ -307,7 +307,19 @@
       </div>
     </div>
   </footer>
+  <?php
+  if (isset($_POST['send'])) {
+    $to = "admin@example.com";
+    $subject = $_POST['Subject'];
+    $txt = $_POST['Message'];
+    $from = $_POST['Email'];
+    $headers = "From: {$from}" . "\r\n";
 
+    if (mail($to, $subject, $txt, $headers)) {
+      echo "<script>alert('successfully sent');</script>";
+    }
+  }
+  ?>
   <a href="#top" class="
         btn btn-white
         rounded-circle
