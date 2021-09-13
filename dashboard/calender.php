@@ -55,6 +55,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 ">
     <!-- Topnav -->
     <?php include("../includes/dashboardTopNav.php"); ?>
+
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top: -36%;">
       <h1 class="text-center p-3 text-white">Time Table</h1>
