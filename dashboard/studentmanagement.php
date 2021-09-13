@@ -53,7 +53,7 @@ $page = "studentmanagment";
     <?php include("../includes/dashboardNavbar.php"); ?>
     <!-- Main content -->
     <div class="main-content" id="panel" style="background-color: #0093E9;
-background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left:15%;
 ">
         <!-- Topnav -->
         <?php include("../includes/dashboardTopNav.php"); ?>
@@ -61,7 +61,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
         <?php include("../includes/dashboardHeader.php"); ?>
         <div class="container">
             <p id="success"></p>
-            <div class="table-wrapper table-responsive">
+            <div class="table-wrapper table-responsive mw-100">
                 <div class="table-title">
                     <div class="row">
 
@@ -87,19 +87,24 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
                             <th>NAME</th>
                             <th>EMAIL</th>
                             <th>PHONE</th>
+                            <th>CLASS</th>
+                            <TH>SUBJECT</TH>
                             <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         <?php
-                        $result = $conn->query("SELECT id,firstname,email,phone FROM register");
+                        $result = $conn->query("SELECT id,firstname,email,phone,class,subject FROM register");
                         $i = 1;
                         while ($row = $result->fetch_array()) {
                             //echo 1;
 
                         ?>
                             <tr id="<?php //echo 1;
+                                    if ($row['firstname'] == "admin") {
+                                        continue;
+                                    }
                                     echo $row["id"];
                                     ?>">
                                 <td>
@@ -124,7 +129,14 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
                                     <?php //echo 1;
                                     echo $row["phone"]; ?>
                                 </td>
-
+                                <td>
+                                    <?php //echo 1;
+                                    echo $row["class"]; ?>
+                                </td>
+                                <td>
+                                    <?php //echo 1;
+                                    echo $row["subject"]; ?>
+                                </td>
                                 <td>
 
                                     <a href="#deleteEmployeeModal" class="delete" data-id="<?php echo $row["id"]; ?>" data-bs-toggle="modal">

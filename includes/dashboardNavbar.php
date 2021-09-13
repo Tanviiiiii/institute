@@ -18,7 +18,7 @@
             return "../$page.php";
           } else if ($page == "dashboard") {
             return "../$page.php";
-          } else if ($page == "calender") {
+          } else if ($page == "timetable") {
             return "../$page.php";
           } else if ($page == "studentmanagment") {
             return "../$page.php";
@@ -43,9 +43,9 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link <?php echo $page == "calender" ? "active" : ""; ?>" href="calender.php">
+              <a class="nav-link <?php echo $page == "timetable" ? "active" : ""; ?>" href="timetable.php">
                 <i class="ni ni-calendar-grid-58 text-red"></i>
-                <span class="nav-link-text"><strong>Calendar</strong></span>
+                <span class="nav-link-text"><strong>Timetable</strong></span>
               </a>
             </li>
             <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
