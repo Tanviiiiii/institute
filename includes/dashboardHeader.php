@@ -1,4 +1,4 @@
-<div class="header bg-primary" style="height:200px;">
+<div class="header" style="height:200px;">
     <div class="container">
         <div class="header-body">
             <div class="row align-items-center py-4">
@@ -6,8 +6,8 @@
 
                     <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                         <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                            <li class="breadcrumb-item"><a href="dashboard.html"><i class="fas fa-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="dashboard.html">Dashboards</a></li>
+                            <li class="breadcrumb-item"><a href="dashboard.php"><i class="fas fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="dashboard.php">Dashboards</a></li>
                         </ol>
                     </nav>
                 </div>

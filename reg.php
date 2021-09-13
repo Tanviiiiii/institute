@@ -1,6 +1,6 @@
 <?php
 include("includes/database.php");
-$firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = "";
+$firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = $classErr = "";
 function test_input($data)
 {
   $data = trim($data);
@@ -11,7 +11,7 @@ function test_input($data)
 }
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
-  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES(?,?,?,?,?,?,?)");
+  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject,class) VALUES(?,?,?,?,?,?,?,?)");
   if (empty($_POST['firstname'])) {
     $firstnameErr = "Name is Required";
   } else {
@@ -50,8 +50,8 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
   }
 
   empty($_POST['gender']) ? $genderErr = "Gender is required" : $gender = test_input($_POST['gender']);
-  empty($_POST['subject']) ? $subjectErr = "Subject is required" :   $subject = test_input($_POST['subject']);
-
+  empty($_POST['subject']) ? $subjectErr = "Subject is required" :   $subject = implode(', ', $_POST['subject']);
+  empty($_POST['class']) ? $classErr = "class is required" :   $class = test_input($_POST['class']);
 
 
   $sql = "SELECT * FROM register WHERE email='{$email}' or phone='{$phone}'";
@@ -66,7 +66,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
   } else {
     // $query = "INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('{$firstname}','{$lastname}','{$email}','{$password}','{$phone}','{$gender}','{$subject}')";
 
-    $stmt->bind_param("sssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject);
+    $stmt->bind_param("ssssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject, $class);
     $res = $stmt->execute();
 
     if (!$res) {
@@ -96,6 +96,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Registration Form</title>
+  <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
@@ -270,21 +271,44 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="my-md-2 my-3">
+              <label>Class</label>
+              <span class="text-danger"><?php if (isset($_POST['class'])) echo $classErr; ?></span>
+              <select id="class" name="class" class="form-select" required>
+                <option value="" selected>Choose Option</option>
+                <option value="None">None</option>
+                <option value="12">12<sup>th</sup></option>
+                <option value="11">11<sup>th</sup></option>
+                <option value="10">10<sup>th</sup></option>
+                <option value="9">9<sup>th</sup></option>
+                <option value="8">8<sup>th</sup></option>
+                <option value="7">7<sup>th</sup></option>
+                <option value="6">6<sup>th</sup></option>
+                <option value="5">5<sup>th</sup></option>
+                <option value="4">4<sup>th</sup></option>
+                <option value="3">3<sup>th</sup></option>
+                <option value="2">2<sup>th</sup></option>
+                <option value="1">1<sup>th</sup></option>
+              </select>
+            </div>
+          </div>
+        </div>
         <div class="my-md-2 my-3">
           <label>Subject</label>
           <span class="text-danger"><?php if (isset($_POST['subject'])) echo $subjectErr; ?></span>
-          <select id="sub" name="subject" required>
-            <option value="" selected>Choose Option</option>
-            <option value="Pcm">Physics/chemistry/mathematics(12th)</option>
-            <option value="SM">Science/Mathematics(10th)</option>
-            <option value="Physics">Physics(12th)</option>
-            <option value="Chemistry">Chemistry(12th)</option>
-            <option value="Mathematics">Mathematics(12th)</option>
-            <option value="Accounts">Accounts(12th)</option>
-            <option value="Business studies">Business studies(12th)</option>
-            <option value="Biology">Biology(12th)</option>
-            <option value="Science">Science(10th)</option>
-            <option value="Maths">Maths(10th)</option>
+          <select id="sub" name="subject[]" class="form-select" multiple required>
+            <option value="" selected disabled>Choose Option</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="Accounts">Accounts</option>
+            <option value="Business studies">Business studies</option>
+            <option value="Biology">Biology</option>
+            <option value="Science">Science</option>
+            <option value="Maths">Maths</option>
+            <option value="Economics">Economics</option>
             <option value="Engineering Coaching">Engineering Coaching</option>
             <option value="NATA Coaching">NATA Coaching</option>
             <option value="Polytechnic Coaching">Polytechnic Coaching</option>
