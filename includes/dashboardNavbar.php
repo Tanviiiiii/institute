@@ -48,7 +48,7 @@
                 <span class="nav-link-text"><strong>Calendar</strong></span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $page == "studentmanagment" ? "active" : ""; ?>" href="studentmanagement.php">
                 <i class="ni ni-single-02 text-red"></i>
                 <span class="nav-link-text"><strong>Student Managment</strong></span>

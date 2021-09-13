@@ -60,33 +60,37 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
     <div class="container position-relative" style="top: -36%;">
       <h1 class="text-center p-3 text-white">Time Table</h1>
 
-      <form name="form4" id="form4" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-control" style="height:calc(5.5em + 1.25rem + 5px);border:0;">
+      <form name="form4" id="form4" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-control" style="height:100%;border:0;">
         <div class="row justify-content-center align-items-center">
-          <div class="col">
-            Class: <select name="class" id="class" class="form-select" required>
-              <option value="" selected="selected">Select Class</option>
-            </select>
-          </div>
-          <div class="col">
-            Subject: <select name="subject" id="subject" class="form-select">
-              <option value="" selected="selected">Select Subject</option>
-            </select>
-          </div>
-          <div class="col">
-            Day: <select name="day" id="day" class="form-select">
-              <option value="" selected="selected">Select Day</option>
-            </select>
-          </div>
-          <div class="col">
-            <label for="timings">Timings</label>
-            <input type="text" name="timings" id="timings" class="form-control" placeholder="8-10">
+          <div class="row">
+            <div class="col-md-3">
+              Class: <select name="class" id="class" class="form-select" required>
+                <option value="" selected="selected">Select Class</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              Subject: <select name="subject" id="subject" class="form-select">
+                <option value="" selected="selected">Select Subject</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              Day: <select name="day" id="day" class="form-select">
+                <option value="" selected="selected">Select Day</option>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label for="timings">Timings</label>
+              <input type="text" name="timings" id="timings" class="form-control" placeholder="8-10">
+            </div>
+            <div class="row mt-4 mt-0">
+              <div class="col">
+                <input type="submit" value="Submit" name="submit" class="btn btn-success">
+                <!-- Button trigger modal -->
+                <a href="show/show-calender.php">Show Time Table</a>
+              </div>
+            </div>
           </div>
 
-          <div class="col">
-            <input type="submit" value="Submit" name="submit" class="btn btn-success">
-            <!-- Button trigger modal -->
-            <a href="show/show-calender.php">Show Time Table</a>
-          </div>
         </div>
       </form>
     </div>
