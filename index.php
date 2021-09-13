@@ -61,7 +61,7 @@
             </ul>
 
             <a href="login.php" class="btn custom-btn-bg text-white rounded-pill px-5">Login</a>
-            <a href="reg.php" class="btn btn-outline-primary rounded-pill px-5" style="margin-left: 10px">Register</a>
+            <a href="reg.php" class="btn custom-btn-bg text-white rounded-pill px-5" style="margin-left: 10px">Register</a>
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@
         <div class="col-md-6 text-center">
           <?php
 
-          $sub = array("CBSE Exams." => "100%", "Physics/Chemistry/Mathematics(PCM-12th)."  => "100%", "Accounts/Business studies(commerce-12th)." => "100%", "Science/Maths(10th)." => "100%", "HOME TUITIONS FOR JUNIORS" => "100%");
+          $sub = array("CBSE Exams" => "100%", "Physics/Chemistry/Mathematics(PCM-12th)"  => "100%", "Accounts/Business Studies(Commerce-12th)" => "100%", "Science/Maths(10th)" => "100%", "Home Tuitions For Juniors" => "100%");
 
           foreach ($sub as $s => $s_value) {
           ?>
@@ -150,7 +150,7 @@
         <div class="col-md-6 text-center">
           <?php
 
-          $newSub = array("NATA Coaching." => "90%", "Polytechnic Coaching."  => "92%", "JEE Mains/Advance." => "90%", "Carrer Councelling." => "95%", "Engineering Coaching" => "90%");
+          $newSub = array("NATA Coaching" => "90%", "Polytechnic Coaching"  => "92%", "JEE Mains/Advance" => "90%", "Carrer Councelling" => "95%", "Engineering Coaching" => "90%");
 
           foreach ($newSub as $ns => $ns_value) {
           ?>

@@ -288,9 +288,9 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
                 <option value="6">6<sup>th</sup></option>
                 <option value="5">5<sup>th</sup></option>
                 <option value="4">4<sup>th</sup></option>
-                <option value="3">3<sup>th</sup></option>
-                <option value="2">2<sup>th</sup></option>
-                <option value="1">1<sup>th</sup></option>
+                <option value="3">3<sup>rd</sup></option>
+                <option value="2">2<sup>nd</sup></option>
+                <option value="1">1<sup>st</sup></option>
               </select>
             </div>
           </div>

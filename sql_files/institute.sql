@@ -33,7 +33,7 @@ CREATE TABLE `assignment` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `concat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -47,7 +47,7 @@ CREATE TABLE `classlink` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `link` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -61,7 +61,7 @@ CREATE TABLE `crud` (
   `email` varchar(30) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `city` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `crud`
@@ -87,7 +87,7 @@ CREATE TABLE `register` (
   `gender` char(1) NOT NULL,
   `subject` varchar(1000) NOT NULL,
   `class` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `register`
@@ -111,7 +111,7 @@ CREATE TABLE `studymaterial` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `concat` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,7 @@ CREATE TABLE `timetable` (
   `subject` varchar(255) NOT NULL,
   `day` varchar(255) NOT NULL,
   `timings` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `timetable`
