@@ -1,8 +1,10 @@
 <?php
 include("../includes/session_check.php");
+include("../includes/check.php");
 $page = "calender";
 
 if (isset($_POST['submit'])) {
+
   $stmt = $conn->prepare("INSERT INTO timetable(class,subject,day,timings) VALUES(?,?,?,?)");
   $class = $_POST['class'];
   $subject = $_POST['subject'];
@@ -22,6 +24,7 @@ if (isset($_POST['submit'])) {
   }
 }
 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,7 +34,7 @@ if (isset($_POST['submit'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>S2C <?php echo $page; ?></title>
   <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
@@ -39,6 +42,7 @@ if (isset($_POST['submit'])) {
   <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
   <!-- Page plugins -->
   <!-- Argon CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 
@@ -46,32 +50,17 @@ if (isset($_POST['submit'])) {
   <!-- Sidenav -->
   <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
-  <div class="main-content" id="panel">
+  <div class="main-content" id="panel" style="background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+">
     <!-- Topnav -->
     <?php include("../includes/dashboardTopNav.php"); ?>
-    <!-- Header -->
-    <!-- <div class="header bg-primary">
-      <div class="container">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
 
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="dashboard.php"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="dashboard.php">Dashboards</a></li>
-                </ol>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <?php include("../includes/dashboardHeader.php"); ?>
-    <div class="container">
-      <h1 class="text-center p-3">Time Table</h1>
+    <div class="container position-relative" style="top: -36%;">
+      <h1 class="text-center p-3 text-white">Time Table</h1>
 
-      <form name="form4" id="form4" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-control" style="height:calc(5.5em + 1.25rem + 5px)">
+      <form name="form4" id="form4" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="form-control" style="height:calc(5.5em + 1.25rem + 5px);border:0;">
         <div class="row justify-content-center align-items-center">
           <div class="col">
             Class: <select name="class" id="class" class="form-select" required>
@@ -94,26 +83,18 @@ if (isset($_POST['submit'])) {
           </div>
 
           <div class="col">
-            <input type="submit" value="Submit" name="submit" class="btn btn-primary">
+            <input type="submit" value="Submit" name="submit" class="btn btn-success">
+            <!-- Button trigger modal -->
+            <a href="show/show-calender.php">Show Time Table</a>
           </div>
         </div>
       </form>
     </div>
-    <!-- Argon Scripts -->
 
-    <!-- Core -->
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-    <!-- Argon JS -->
-    <script src="assets/js/argon.js?v=1.2.0"></script>
-    <script src='lib/moment.min.js'></script>
+    <!-- scripts includes -->
+    <?php include("../includes/scripts.php"); ?>
     <script src="./assets/js/timetable.js"></script>
+    <!-- <script src="./assets/js/update-timetable.js"></script> -->
 </body>
 
 </html>

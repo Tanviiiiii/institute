@@ -10,6 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Home Page</title>
   <meta name="description" content="" />
+  <link rel="shortcut icon" href="assets/img/brand/logo.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

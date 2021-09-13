@@ -1,5 +1,6 @@
 <?php
 include("../includes/session_check.php");
+include("../includes/check.php");
 $page = "fee";
 ?>
 <!DOCTYPE html>
@@ -10,7 +11,7 @@ $page = "fee";
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>S2C <?php echo $page; ?></title>
   <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
+  <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
   <!-- Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
   <!-- Icons -->
@@ -25,7 +26,9 @@ $page = "fee";
   <!-- Sidenav -->
   <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
-  <div class="main-content" id="panel">
+  <div class="main-content" id="panel" style="background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+">
     <!-- Topnav -->
     <!-- Topnav -->
     <?php include("../includes/dashboardTopNav.php"); ?>
@@ -48,18 +51,7 @@ $page = "fee";
       </div>
     </div> -->
     <?php include("../includes/dashboardHeader.php"); ?>
-    <!-- Argon Scripts -->
-    <!-- Core -->
-    <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-    <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-    <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-    <!-- Optional JS -->
-    <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-    <!-- Argon JS -->
-    <script src="assets/js/argon.js?v=1.2.0"></script>
+    <?php include("../includes/scripts.php"); ?>
 </body>
 
 </html>

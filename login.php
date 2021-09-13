@@ -5,16 +5,23 @@ if (!isset($_SESSION['loggedin'])) {
     if (isset($_POST['submit'])) {
         $username =  $conn->real_escape_string($_POST['uname']);
         $password =  $conn->real_escape_string($_POST['psw']);
-        $query = "SELECT firstname,lastname FROM register WHERE firstname='{$username}' AND password='{$password}'";
-
+        $query = "SELECT firstname,lastname,class FROM register WHERE firstname='{$username}' AND binary password='{$password}'";
         $result = $conn->query($query);
         // $row = $result->fetch_assoc();
         $count = $result->num_rows;
         if ($count == 1) {
+
             $_SESSION['username'] = $username;
             $_SESSION['loggedin'] = true;
             echo "User logged in ";
-            header("location: dashboard/dashboard.php");
+            if ($username == "admin") {
+                header("location: dashboard/dashboard.php");
+            } else if ($username != "admin") {
+                $row = $result->fetch_assoc();
+                $_SESSION['class'] = $row['class'];
+                $class = $_SESSION['class'];
+                header("location: student-dashboard/dashboard.php?username={$_SESSION['username']}&class={$class}");
+            }
         } else {
 ?>
             <div class="container mt-md-4 mt-2">
@@ -39,6 +46,7 @@ if (!isset($_SESSION['loggedin'])) {
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Login Form</title>
+    <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">

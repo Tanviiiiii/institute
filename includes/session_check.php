@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../includes/database.php");
+include("database.php");
 if (isset($_SESSION['loggedin'])) {
     $username = $_SESSION['username'];
 } else {

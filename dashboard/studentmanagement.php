@@ -1,6 +1,7 @@
 <?php
 include("../includes/session_check.php");
-$page = "Student List";
+include("../includes/check.php");
+$page = "studentmanagment";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +15,7 @@ $page = "Student List";
 
     <title>S2C <?php echo $page; ?></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="icon" href="./assets/img/brand/favicon.png" type="image/png">
+    <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
