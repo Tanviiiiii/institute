@@ -1,2 +1,0 @@
--- CREATE DATABASE institue;
--- use institue;

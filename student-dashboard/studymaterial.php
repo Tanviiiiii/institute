@@ -47,7 +47,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
             <th>Class</th>
             <th>Subjects</th>
             <th>day</th>
-            <th>timings</th>
+            <th>File</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +56,9 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
               <td scope="row"><?php echo $row['class']; ?></td>
               <td><?php echo $row['subject']; ?></td>
               <td><?php echo $row['chapter']; ?></td>
-              <td><img src="<?php echo $row['concat']; ?>" alt="img" class="img-fluid" /></td>
+              <td>
+                <img src="../dashboard/<?php echo $row['concat']; ?>" alt="image" width="100" height="100">
+              </td>
             </tr>
           <?php endwhile; ?>
         </tbody>
