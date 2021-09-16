@@ -1,6 +1,27 @@
 <?php
 include("../includes/session_check.php");
-$target_dir = "assets/uploads/student/";
+
+if (isset($_POST['subject']) == "PHYSICS") {
+    $target_dir = "assets/uploads/student/physics";
+} else if (isset($_POST['subject']) == "CHEMISTRY") {
+    $target_dir = "assets/uploads/student/chemistry";
+} else if (isset($_POST['subject']) == "BIOLOGY") {
+    $target_dir = "assets/uploads/student/biology";
+} else if (isset($_POST['subject']) == "MATHEMATICS") {
+    $target_dir = "assets/uploads/student/mathematics";
+} else if (isset($_POST['subject']) == "ACCOUTNS") {
+    $target_dir = "assets/uploads/student/accounts";
+} else if (isset($_POST['subject']) == "BUISNESS") {
+    $target_dir = "assets/uploads/student/buisness";
+} else if (isset($_POST['subject']) == "ECONOMICS") {
+    $target_dir = "assets/uploads/student/economics";
+} else if (isset($_POST['subject']) == "ENGLISH") {
+    $target_dir = "assets/uploads/student/english";
+} else if (isset($_POST['subject']) == "SCIENCE") {
+    $target_dir = "assets/uploads/student/science";
+} else {
+    $target_dir = "assets/uploads/student/";
+}
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
