@@ -4,7 +4,7 @@ $page = "show classlink";
 
 $query = "SELECT * FROM classlink";
 $res = $conn->query($query);
-$row = $res->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html>

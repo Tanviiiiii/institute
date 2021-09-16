@@ -41,6 +41,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">CLASS LINK</h1>
+
       <?php while ($row = $res->fetch_assoc()) : ?>
         <div class="card p-2 w-50 mx-auto">
           <div class="card-title">Class: <?php echo $row['class'] ?></div>
