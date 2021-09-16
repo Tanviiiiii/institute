@@ -4,18 +4,17 @@ include("../includes/session_check.php");
 include("../includes/check.php");
 $page = "classlink";
 if (isset($_POST['submit'])) {
-  $stmt = $conn->prepare("INSERT INTO classlink(class,subject,chapter,link) VALUES(?,?,?,?)");
-  $stmt->bind_param("ssss", $class, $subject, $chapter, $link);
+  $stmt = $conn->prepare("INSERT INTO classlink(class,subject,chapter,link,date) VALUES(?,?,?,?,?)");
+  $stmt->bind_param("sssss", $class, $subject, $chapter, $link, $date);
 
   $class = $_POST['class'];
   $subject = $_POST['subject'];
   $chapter = $_POST['chapter'];
   $link = $_POST['link'];
-
+  $date = date('Y-m-d');
   $result = $stmt->execute();
 
   if ($result) {
-    echo "<script>alert('succesfully inserted record');</script>";
     $stmt->close();
     $conn->close();
   } else {

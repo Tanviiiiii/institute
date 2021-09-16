@@ -10,30 +10,6 @@
     <div class="navbar-inner">
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
-        <?php
-
-        function showPage($page)
-        {
-          if ($page == "show" || $page == "delete" || $page == "show study" || $page == "delete") {
-            return "../$page.php";
-          } else if ($page == "dashboard") {
-            return "../$page.php";
-          } else if ($page == "timetable") {
-            return "../$page.php";
-          } else if ($page == "studentmanagment") {
-            return "../$page.php";
-          } else if ($page == "studymaterial") {
-            return "../$page.php";
-          } else if ($page == "assignment") {
-            return "../$page.php";
-          } else if ($page == "classlink") {
-            return "../$page.php";
-          } else {
-            return "../$page.php";
-          }
-        }
-
-        ?>
         <!-- Nav items -->
         <ul class="navbar-nav"><strong>
             <li class="nav-item">
@@ -49,7 +25,7 @@
               </a>
             </li>
             <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
-              <a class="nav-link <?php echo $page == "studentmanagment" ? "active" : ""; ?>" href="studentmanagement.php">
+              <a class="nav-link <?php echo $pageName == "studentmanagment" ? "active" : ""; ?>" href="studentmanagement.php">
                 <i class="ni ni-single-02 text-red"></i>
                 <span class="nav-link-text"><strong>Student Managment</strong></span>
               </a>
