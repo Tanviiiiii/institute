@@ -8,11 +8,7 @@ dashboard/assets/uploads/assignments/economics/*
 dashboard/assets/uploads/assignments/english/*
 dashboard/assets/uploads/assignments/mathematics/*
 dashboard/assets/uploads/assignments/science/*
-dashboard/assets/uploads/assignments/*.jpg
-dashboard/assets/uploads/assignments/*.png
-dashboard/assets/uploads/assignments/*.docx
-dashboard/assets/uploads/assignments/*.doc
-dashboard/assets/uploads/assignments/*.jpeg
+
 dashboard/assets/uploads/student/accounts/*
 dashboard/assets/uploads/student/biology/*
 dashboard/assets/uploads/student/physics/*
@@ -22,8 +18,4 @@ dashboard/assets/uploads/student/economics/*
 dashboard/assets/uploads/student/english/*
 dashboard/assets/uploads/student/mathematics/*
 dashboard/assets/uploads/student/science/*
-dashboard/assets/uploads/student/*.jpeg
-dashboard/assets/uploads/student/*.jpg
-dashboard/assets/uploads/student/*.png
-dashboard/assets/uploads/student/*.docx
-dashboard/assets/uploads/student/*.doc
+
