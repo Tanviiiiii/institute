@@ -12,10 +12,7 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+
 
 --
 -- Database: `institute`
@@ -47,7 +44,7 @@ CREATE TABLE `classlink` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `link` text NOT NULL
-) ENGINE=InnoDB;
+); ENGINE=InnoDB;
 
 
 
