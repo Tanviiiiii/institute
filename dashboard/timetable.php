@@ -1,17 +1,18 @@
 <?php
 include("../includes/session_check.php");
 include("../includes/check.php");
-$page = "calender";
+$page = "timetable";
 
 if (isset($_POST['submit'])) {
 
-  $stmt = $conn->prepare("INSERT INTO timetable(class,subject,day,timings) VALUES(?,?,?,?)");
+  $stmt = $conn->prepare("INSERT INTO timetable(class,subject,day,start_event,end_event) VALUES(?,?,?,?,?)");
   $class = $_POST['class'];
   $subject = $_POST['subject'];
   $day = $_POST['day'];
-  $timings = $_POST['timings'];
+  $start_event = $_POST['start_event'];
+  $end_event = $_POST['end_event'];
 
-  $stmt->bind_param("ssss", $class, $subject, $day, $timings);
+  $stmt->bind_param("sssss", $class, $subject, $day,  $start_event, $end_event);
   $result = $stmt->execute();
   if (!$result) {
     die("Query faild" . mysqli_error($conn));
@@ -44,6 +45,13 @@ if (isset($_POST['submit'])) {
   <!-- Argon CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <style>
+    @media(max-width:757px) {
+      .main-content {
+        padding-left: 0 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -79,14 +87,16 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
               </select>
             </div>
             <div class="col-md-3">
-              <label for="timings">Timings</label>
-              <input type="text" name="timings" id="timings" class="form-control" placeholder="8-10">
+              <label for="start_event">from Timings</label>
+              <input type="text" name="start_event" id="start_event" class="form-control" placeholder="8">
+              <label for="end_event">to Timings</label>
+              <input type="text" name="end_event" id="end_event" class="form-control" placeholder="10">
             </div>
             <div class="row mt-4 mt-0">
               <div class="col">
                 <input type="submit" value="Submit" name="submit" class="btn btn-success">
                 <!-- Button trigger modal -->
-                <a href="show/show-calender.php">Show Time Table</a>
+                <a href="show/show-timetable.php">Show Time Table</a>
               </div>
             </div>
           </div>

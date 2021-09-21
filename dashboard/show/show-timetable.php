@@ -22,7 +22,13 @@ $res = $conn->query($query);
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../assets/css/argon.css?v=1.2.0" type="text/css">
+    <link rel="stylesheet" href="../assets/css/argon.css" type="text/css">
+    <style>
+        th,
+        td {
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +46,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
 
         </div>
         <div class="container">
-            <table class="table table-hover table-inverse  bg-dark text-white">
+            <table class="table table-hover table-inverse table-responsive bg-dark text-white">
                 <thead class="thead-inverse">
                     <tr>
                         <th>Id</th>
@@ -59,12 +65,12 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
                             <td><?php echo $row['class']; ?></td>
                             <td><?php echo $row['subject']; ?></td>
                             <td><?php echo $row['day']; ?></td>
-                            <td><?php echo $row['timings']; ?></td>
+                            <td><?php echo $row['start_event']; ?>&nbsp;<?php echo $row['end_event']; ?></td>
                             <td>
-                                <a href="update-calender.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Update</a>
+                                <a href="update-timetable.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Update</a>
                             </td>
                             <td>
-                                <a href="delete-calender.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
+                                <a href="delete-timetable.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>

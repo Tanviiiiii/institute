@@ -2,6 +2,11 @@
 include("../includes/session_check.php");
 include("../includes/check.php");
 $page = "dashboard";
+if ($page == "dashboard") {
+  $query = "SELECT count(id) AS id from register";
+  $res = $conn->query($query);
+  $row = $res->fetch_assoc();
+}
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +26,13 @@ $page = "dashboard";
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-
+  <style>
+    @media(max-width:757px) {
+      .main-content {
+        padding-left: 0 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>

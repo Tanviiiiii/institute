@@ -98,6 +98,7 @@ CREATE TABLE `timetable` (
   `timings` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
 --
 -- Dumping data for table `timetable`
 --

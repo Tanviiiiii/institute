@@ -20,7 +20,13 @@ $page = "dashboard";
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
-
+  <style>
+    @media(max-width:757px) {
+      .main-content {
+        padding-left: 0 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -51,7 +57,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
 
           </div>
           <!-- Card stats -->
-          <?php include("../includes/dashboardCard.php"); ?>
+          <?php include("./components/dashboardCard.php"); ?>
         </div>
       </div>
     </div>

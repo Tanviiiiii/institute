@@ -24,6 +24,7 @@
                 <span class="nav-link-text"><strong>Timetable</strong></span>
               </a>
             </li>
+
             <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $pageName == "studentmanagment" ? "active" : ""; ?>" href="studentmanagement.php">
                 <i class="ni ni-single-02 text-red"></i>
