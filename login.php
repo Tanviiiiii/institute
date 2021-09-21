@@ -294,7 +294,7 @@ if (!isset($_SESSION['loggedin'])) {
                                     <li>We have well qualified and experienced teachers.
                                     <li>Regular test are being conducted and regular feedback via msgs call and parent meetings is being provided to parents.
                                     <li>We always try to be more innovative in our way to make study more interesting and easy for children.
-                                    <li>we also provide some recordings and animated content of our lectures on you-tube for future reference and revision help.
+                                    <li>We also provide some recordings and animated content of our lectures on you-tube for future reference and revision help.
                         </medium></strong></ul>
                     </div>
 
