@@ -94,6 +94,7 @@ CREATE TABLE `timetable` (
   `timings` varchar(255) NOT NULL
 ) ENGINE=InnoDB;
 
+
 --
 -- Dumping data for table `timetable`
 --

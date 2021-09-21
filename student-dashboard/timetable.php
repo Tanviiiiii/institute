@@ -29,6 +29,13 @@ $res = $conn->query($query);
   <!-- Argon CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+  <style>
+    @media(max-width:757px) {
+      .main-content {
+        padding-left: 0 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -60,7 +67,8 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
               <td scope="row"><?php echo $row['class']; ?></td>
               <td><?php echo $row['subject']; ?></td>
               <td><?php echo $row['day']; ?></td>
-              <td><?php echo $row['timings']; ?></td>
+              <td><?php echo $row['start_event'] < 12 ? $row['start_event'] . " am " : " pm "  ?>&nbsp;-&nbsp;<?php echo $row['end_event'] < 12 ? $row['end_event'] . " am " : " pm " ?></td>
+
             </tr>
           <?php endwhile; ?>
         </tbody>

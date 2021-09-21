@@ -45,6 +45,13 @@ $next = $page + 1;
     <link rel="stylesheet" href="./assets/js/student-backend/student-style.css">
     <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
+<style>
+    @media(max-width:757px) {
+        .main-content {
+            padding-left: 0 !important;
+        }
+    }
+</style>
 
 <body>
 
@@ -61,10 +68,11 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
         <?php include("../includes/dashboardHeader.php"); ?>
 
         <div class="container">
+            <!-- <h1 class="text-center text-dark">Student Managenment</h1> -->
             <table class="table text-white table-inverse table-responsive bg-dark">
                 <thead class="thead-inverse">
                     <tr>
-                        <th>ID</th>
+
                         <th>Full Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -78,7 +86,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
                     <?php while ($row = $res->fetch_assoc()) : ?>
                         <?php if ($row['firstname'] == "admin") continue; ?>
                         <tr>
-                            <td scope="row"><?php echo $row['id']; ?></td>
+
                             <td><?php echo $row['firstname'] ?>&nbsp;<?php echo $row['lastname']; ?></td>
                             <td><?php echo $row['email']; ?></td>
                             <td><?php echo $row['phone']; ?></td>

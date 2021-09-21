@@ -3,21 +3,19 @@ session_start();
 include("includes/database.php");
 if (!isset($_SESSION['loggedin'])) {
     if (isset($_POST['submit'])) {
-        $username =  $conn->real_escape_string($_POST['uname']);
+        $email =  $conn->real_escape_string($_POST['email']);
         $password =  $conn->real_escape_string($_POST['psw']);
-        $query = "SELECT firstname,lastname,class FROM register WHERE firstname='{$username}' AND binary password='{$password}'";
+        $query = "SELECT firstname,email,class FROM register WHERE email='{$email}' AND binary password='{$password}'";
         $result = $conn->query($query);
-        // $row = $result->fetch_assoc();
+        $row = $result->fetch_assoc();
         $count = $result->num_rows;
+        $username = $row['firstname'];
         if ($count == 1) {
-
             $_SESSION['username'] = $username;
             $_SESSION['loggedin'] = true;
-            echo "User logged in ";
             if ($username == "admin") {
                 header("location: dashboard/dashboard.php");
             } else if ($username != "admin") {
-                $row = $result->fetch_assoc();
                 $_SESSION['class'] = $row['class'];
                 $class = $_SESSION['class'];
                 header("location: student-dashboard/dashboard.php?username={$_SESSION['username']}&class={$class}");
@@ -271,12 +269,12 @@ if (!isset($_SESSION['loggedin'])) {
                             <h3 class="mb-5 text-center heading">We are S2C</h3>
                             <h6 class="msg-info">Please login to your account</h6>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" name="form1">
-                                <div class="form-group"><label class="form-control-label text-muted">Username</label><input type="text" id="uname" name="uname" placeholder="Enter Username" required="required" class="form-control"></div>
+                                <div class="form-group"><label class="form-control-label text-muted" for="email">Email</label><input type="text" id="email" name="email" placeholder="Enter Email" required="required" class="form-control"></div>
                                 <div class="form-group"><label class="form-control-label text-muted">Password</label><input type="password" id="psw" name="psw" placeholder="Enter Password" class="form-control" required></div>
                                 <div class="row justify-content-center my-3 px-3">
                                     <input type="submit" class="btn-block btn-color text-decoration-none text-center text-white" name="submit" value="Login" />
                                 </div>
-                                <div class="row d-flex justify-content-center my-2"><a href="#" class="text-center"><small class="text-muted">Forgot Password?</small></a>
+                                <div class="row d-flex justify-content-center my-2"><a href="recover_email.php" class="text-center"><small class="text-muted">Forgot Password?</small></a>
                                 </div>
                         </div>
                     </div>
