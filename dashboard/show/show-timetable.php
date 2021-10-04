@@ -65,7 +65,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
                             <td><?php echo $row['class']; ?></td>
                             <td><?php echo $row['subject']; ?></td>
                             <td><?php echo $row['day']; ?></td>
-                            <td><?php echo $row['start_event']; ?>&nbsp;<?php echo $row['end_event']; ?></td>
+                            <td><?php echo $row['start_event'] < 12 ? $row['start_event'] . " am " : " pm "  ?>&nbsp;-&nbsp;<?php echo $row['end_event'] < 12 ? $row['end_event'] . " am " : " pm " ?></td>
                             <td>
                                 <a href="update-timetable.php?id=<?php echo $row['id']; ?>" class="btn btn-success">Update</a>
                             </td>

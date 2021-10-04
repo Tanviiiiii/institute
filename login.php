@@ -5,20 +5,22 @@ if (!isset($_SESSION['loggedin'])) {
     if (isset($_POST['submit'])) {
         $email =  $conn->real_escape_string($_POST['email']);
         $password =  $conn->real_escape_string($_POST['psw']);
-        $query = "SELECT firstname,email,class FROM register WHERE email='{$email}' AND binary password='{$password}'";
+        $query = "SELECT * FROM register WHERE email='{$email}'";
         $result = $conn->query($query);
         $row = $result->fetch_assoc();
-        $count = $result->num_rows;
-        $username = $row['firstname'];
-        if ($count == 1) {
-            $_SESSION['username'] = $username;
-            $_SESSION['loggedin'] = true;
-            if ($username == "admin") {
-                header("location: dashboard/dashboard.php");
-            } else if ($username != "admin") {
-                $_SESSION['class'] = $row['class'];
-                $class = $_SESSION['class'];
-                header("location: student-dashboard/dashboard.php?username={$_SESSION['username']}&class={$class}");
+        if ($result->num_rows == 1) {
+            if (password_verify($password, $row['password'])) {
+                $username = $row['firstname'];
+                $_SESSION['username'] = $username;
+                $_SESSION['loggedin'] = true;
+
+                if ($username == "admin") {
+                    header("location: dashboard/dashboard.php");
+                } else if ($username != "admin") {
+                    $_SESSION['class'] = $row['class'];
+                    $class = $_SESSION['class'];
+                    header("location: student-dashboard/dashboard.php?username={$_SESSION['username']}&class={$class}");
+                }
             }
         } else {
 ?>

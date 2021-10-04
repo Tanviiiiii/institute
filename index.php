@@ -1,3 +1,10 @@
+<?php
+include("includes/database.php");
+$query = "SELECT Name,Ratings,Comments FROM data ORDER BY RAND() LIMIT 5";
+$stmt = $conn->query($query);
+
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -19,7 +26,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="./assets/css/index.css" />
 </head>
 
@@ -61,7 +68,7 @@
             </ul>
 
             <a href="login.php" class="btn custom-btn-bg text-white rounded-pill px-5">Login</a>
-            <a href="reg.php" class="btn custom-btn-bg text-white rounded-pill px-5" style="margin-left: 10px">Register</a>
+            <a href="reg.php" class="btn text-custom rounded-pill px-3 fw-bold" style="margin-left: 10px;font-size:16px;">Register</a>
           </div>
         </div>
       </div>
@@ -126,7 +133,7 @@
     </div>
   </section>
   <section id="services" class="p-md-5 p-3" style="margin-top: 80px">
-    <h1 class="text-center">Services</h1>
+    <h1 class="h1 text-center fw-bold">Services</h1>
     <div class="container mt-md-5 mt-5">
       <div class="row">
         <div class="col-md-6 text-center">
@@ -137,8 +144,8 @@
           foreach ($sub as $s => $s_value) {
           ?>
             <h6 class="h6"><?php echo $s ?></h6>
-            <div class="progress mx-auto mw-100" style="height: 18px; width: 300px">
-              <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress mx-auto mw-100" style="height: 18px; width: 300px;">
+              <div class="progress-bar" role="progressbar" style="width: 100%;background-color:#01b0f8;border-radius:10px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <?php echo $s_value ?>
               </div>
             </div>
@@ -156,7 +163,7 @@
           ?>
             <h6 class="h6"><?php echo $ns ?></h6>
             <div class="progress mx-auto mw-100" style="height: 18px; width: 300px">
-              <div class="progress-bar" role="progressbar" style="width: <?php echo $ns_value ?>" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <div class="progress-bar" role="progressbar" style="width: <?php echo $ns_value ?>;background-color:#01b0f8;border-radius:10px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                 <?php echo $ns_value ?>
               </div>
             </div>
@@ -170,7 +177,7 @@
   </section>
 
   <section class="container d-md-none" style="margin-top: 80px">
-    <h1 class="h1 text-center">Gallery</h1>
+    <h1 class="h1 text-center fw-bold ">Gallery</h1>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <?php
@@ -197,7 +204,7 @@
     </div>
   </section>
   <section id="gallery" class="p-md-5 p-3 d-none d-md-block" style="margin-top: 80px">
-    <h1 class="text-center">Gallery</h1>
+    <h1 class="text-center fw-bold">Gallery</h1>
     <div class="container mt-md-5 mt-5">
       <div class="grid-container">
         <?php
@@ -212,15 +219,41 @@
         }
         ?>
       </div>
+      <div class="container mt-5  d-flex justify-content-center">
+        <a href="events.php" class="btn btn-primary text-center w-25">Show More Images&nbsp; <i class="far fa-eye"></i></a>
+      </div>
     </div>
   </section>
-  <!-- <section id="testimonial">
+  <section id="testimonial" class="p-md-5 p-3" style="margin-top: 80px">
+    <div class="container">
+      <h1 class="h1 text-center fw-bold">Testimonials </h1>
+      <div class="gtco-testimonials">
+
+        <div class="owl-carousel owl-carousel1 owl-theme">
+          <?php while ($row = $stmt->fetch_assoc()) : ?>
+            <div>
+              <div class="card text-center">
+
+                <div class="card-body">
+                  <h5><?php echo $row['Name']; ?> </h5>
+                  <span>Ratings: <?php echo $row['Ratings']; ?></span>
+                  <p class="card-text"><?php echo $row['Comments']; ?> </p>
+                </div>
+              </div>
+            </div>
+          <?php endwhile; ?>
+
+        </div>
+
+      </div>
+      <a href="#" class="btn btn-link btn-block w-100  text-center mt-5">Show More Reviews</a>
+    </div>
 
 
-  
-    </section> -->
+  </section>
   <section id="locate" class="p-md-5 p-3" style="margin-top: 80px">
-    <h1 class="text-center">Get in touch</h1>
+    <h1 class="text-center h1 fw-bold">Get in touch</h1>
+
     <div class="container mt-2 mt-md-5">
       <div class="row">
         <div class="col-md-6">
@@ -263,7 +296,7 @@
     </div>
   </section>
   <footer id="contact" style="
-        background: #26d0ce;
+        background: linear-gradient(      160deg,      rgba(0, 147, 233, 1.0) 0%,      rgba(128, 208, 199, 1.0) 100%    );
 
         margin-top: 80px;
       " class="p-md-5 p-3">
@@ -273,7 +306,11 @@
           <address class="text-white">
             <strong class="text-white">Where to find me:</strong> <br />
             <br />
-            Gurunanak Enclave, Harikshan Marg, Dhakoli, Punjab India 16104
+            sco no 7 new gurunanak enclave
+            Guru Harkishan Marg
+            Dhakoli
+            Panchkula, Punjab 160104
+            India
           </address>
         </div>
         <div class="col-md-4 text-center">
@@ -330,9 +367,45 @@
         align-items-center
         text-decoration-none
       "><i class="fas fa-arrow-up"></i></a>
-
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
   <!-- <script src="" async defer></script> -->
+  <script>
+    (function() {
+      "use strict";
+
+      var carousels = function() {
+        $(".owl-carousel1").owlCarousel({
+          loop: true,
+          center: true,
+          margin: 0,
+          responsiveClass: true,
+          nav: false,
+          responsive: {
+            0: {
+              items: 1,
+              nav: false
+            },
+            680: {
+              items: 2,
+              nav: false,
+              loop: false
+            },
+            1000: {
+              items: 3,
+              nav: true
+            }
+          }
+        });
+      };
+
+      (function($) {
+        carousels();
+      })(jQuery);
+    })();
+  </script>
 </body>
 
 </html>

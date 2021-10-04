@@ -24,7 +24,12 @@
                 <span class="nav-link-text"><strong>Timetable</strong></span>
               </a>
             </li>
-
+            <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
+              <a class="nav-link <?php echo $page == "gallery" ? "active" : ""; ?>" href="../gallery.php">
+                <i class="ni ni-calendar-grid-58 text-red"></i>
+                <span class="nav-link-text"><strong>Gallery</strong></span>
+              </a>
+            </li>
             <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $pageName == "studentmanagment" ? "active" : ""; ?>" href="studentmanagement.php">
                 <i class="ni ni-single-02 text-red"></i>
@@ -37,14 +42,14 @@
                 <span class="nav-link-text"> <strong>Fee Managment</strong></span>
               </a>
             </li> -->
-            <li class="nav-item">
+            <li class="nav-item <?php echo $username == "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $page == "studymaterial" ? "active" : ""; ?>" href="studymaterial.php">
                 <i class="ni ni-single-copy-04 text-red"></i>
                 <span class="nav-link-text"> <strong>Study material/notes section</strong></span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link <?php echo $page == "assignment" ? "active" : ""; ?>" href="assignment.php">
+            <li class="nav-item <?php echo $username == "admin" ? "d-none" : "" ?>">
+              <a class="nav-link  <?php echo $page == "assignment" ? "active" : ""; ?>" href="assignment.php">
                 <i class="ni ni-collection text-red"></i>
                 <span class="nav-link-text"> <strong>Assignment section</strong></span>
               </a>
