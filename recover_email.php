@@ -2,9 +2,9 @@
 include("includes/database.php");
 if (isset($_POST['submit'])) {
     $email = $conn->real_escape_string($_POST['email']);
-    $query = "SELECT firstname,email FROM register WHERE email = '${$email}'";
+    $query = "SELECT firstname,email,token FROM register WHERE email = '{$email}'";
     $result = $conn->query($query);
-    $emailCount = $res->num_rows();
+    $emailCount = $result->num_rows;
 
     if ($emailCount) {
         $userdata = $result->fetch_assoc();
@@ -12,9 +12,9 @@ if (isset($_POST['submit'])) {
         $token = $userdata['token'];
         $subject = "Password recovery";
 
-        $body = "Hi, $user_name Click here to reset your password http://localhost/reset_password.php?token=$token";
-        $sender_email = "From: funnypicture23@gmail.com";
-        if (mail($emai, $subject, $body, $sender_email)) {
+        $body = "Hi, $user_name Click here to reset your password http://localhost/website_folder/reset_password.php?token=$token";
+        $sender_email = "From: tanvisingla3781@gmail.com";
+        if (mail($email, $subject, $body, $sender_email)) {
             $_SESSION['msg'] = "Check your email to reset your password";
             header("location:login.php");
         } else {

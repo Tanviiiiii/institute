@@ -33,8 +33,8 @@ CREATE TABLE `assignment` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `concat` varchar(255) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB ;
+  `date` datetime NOT NULL 
+) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `assignment`
@@ -57,7 +57,7 @@ CREATE TABLE `classlink` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `link` text NOT NULL,
-  `Date` datetime NOT NULL DEFAULT current_timestamp()
+  `Date` datetime NOT NULL 
 ) ENGINE=InnoDB ;
 
 --
@@ -207,7 +207,7 @@ CREATE TABLE `studymaterial` (
   `subject` varchar(255) NOT NULL,
   `chapter` varchar(255) NOT NULL,
   `concat` varchar(255) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `date` datetime NOT NULL 
 ) ENGINE=InnoDB ;
 
 --
