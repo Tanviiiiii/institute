@@ -46,7 +46,7 @@ $next = $page + 1;
     <link rel="stylesheet" href="./assets/css/argon.css?v=1.2.0" type="text/css">
 </head>
 <style>
-    @media(max-width:757px) {
+    @media(max-width:1200px) {
         .main-content {
             padding-left: 0 !important;
         }

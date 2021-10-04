@@ -2,9 +2,7 @@
 
 include("../includes/session_check.php");
 $page = "assignment";
-$class = $_SESSION['class'];
-$query = "SELECT * FROM assignment WHERE class={$class}";
-$res = $conn->query($query); ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +24,7 @@ $res = $conn->query($query); ?>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css" />
   <style>
-    @media(max-width:757px) {
+    @media(max-width:1200px) {
       .main-content {
         padding-left: 0 !important;
       }
@@ -49,38 +47,12 @@ $res = $conn->query($query); ?>
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container">
       <h1 class="text-center p-3 text-dark">Assignment Section</h1>
-      <h1 class="display-3">Subjects</h1>
-      <ul>
-        <li>
-          <a href="subjects/phy/phy.php" class="h3 d-block text-primary text-decoration-underline">Physics</a>
-        </li>
-        <li>
-          <a href="subjects/chem/chem.php" class="h3 d-block text-primary text-decoration-underline">Chemistry</a>
-        </li>
-        <li>
-          <a href="subjects/maths/maths.php" class="h3 d-block text-primary text-decoration-underline">Maths</a>
-        </li>
-        <li>
-          <a href="subjects/bio/bio.php" class="h3 d-block text-primary text-decoration-underline">Biology</a>
-        </li>
-        <li>
-          <a href="subjects/acc/acc.php" class="h3 d-block text-primary text-decoration-underline">Accounts</a>
-        </li>
-        <li>
-          <a href="subjects/bst/bst.php" class="h3 d-block text-primary text-decoration-underline">Business Studies</a>
-        </li>
-        <li>
-          <a href="subjects/eco/eco.php" class="h3 d-block text-primary text-decoration-underline">Economics</a>
-        </li>
-        <li>
-          <a href="subjects/eng/eng.php" class="h3 text-primary text-decoration-underline">English
-          </a>
-        </li>
-      </ul>
+      <h1 class="display-3">Assignments</h1>
+      <a href="https://drive.google.com/drive/folders/1N9zXWbRRkMukcd5LXP6apXE29uHUSxHb">Links for Study Material</a>
     </div>
   </div>
   <?php include("../includes/scripts.php"); ?>
-  <script src="./assets/js/classlink.js" async></script>
+
 </body>
 
 </html>

@@ -11,7 +11,7 @@ function test_input($data)
 }
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
-  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject,class) VALUES(?,?,?,?,?,?,?,?)");
+  $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject,class,token,status) VALUES(?,?,?,?,?,?,?,?,?,?)");
   if (empty($_POST['firstname'])) {
     $firstnameErr = "Name is Required";
   } else {
@@ -42,6 +42,9 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
     $passwordErr = "Password is Required";
   } else {
     $password = test_input($_POST['password']);
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $token = bin2hex(random_bytes(15));
+    $status = 'inactive';
   }
   if (empty($_POST['phone'])) {
     $phoneErr = "Phone is required";
@@ -64,9 +67,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
       echo "<script>window.alert('phone number already exists');</script>";
     }
   } else {
-    // $query = "INSERT INTO register(firstname,lastname,email,password,phone,gender,subject) VALUES('{$firstname}','{$lastname}','{$email}','{$password}','{$phone}','{$gender}','{$subject}')";
-
-    $stmt->bind_param("ssssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject, $class);
+    $stmt->bind_param("ssssssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject, $class, $token, $status);
     $res = $stmt->execute();
 
     if (!$res) {
