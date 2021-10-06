@@ -1,21 +1,28 @@
 <?php
 session_start();
 ob_start();
+include("includes/database.php");
 if (isset($_POST['submit'])) {
+    // echo "<script>alert(1)</script>";
     if (isset($_GET['token'])) {
         $token = $_GET['token'];
-        $new_password = $conn->mysqli_real_escape_string($_POST['password']);
-        $confirm_password = $conn->mysqli_real_escape_string($_POST['confirmPassword']);
+        // echo "<script>alert(1)</script>";
+        // echo $token;
+        $new_password = $_POST['password'];
+        $confirm_password = $_POST['confirmPassword'];
 
-        $pass = password_hash($new_password, PASSWORD_DEFAULT);
+        $new_pass = password_hash($new_password, PASSWORD_DEFAULT);
         $cpass = password_hash($confirm_password, PASSWORD_DEFAULT);
 
 
         if ($new_password == $confirm_password) {
-            $updateQuery = "UPDATE register SET password = {$new_password} WHERE token = {$token}";
+            $updateQuery = "UPDATE register SET password = '{$new_pass}' WHERE token = '{$token}'";
             $res = $conn->query($updateQuery);
             if ($res) {
-                $_SESSION['passUpdateMsg'] = "Your password has been updated";
+                $_SESSION['passMsg'] = "Your password has been updated";
+                // echo "<script>alert('update');</script>";
+                header("refresh=2;url=login.php");
+
             } else {
                 $_SESSION['passMsg'] = "your password is not updated";
                 header("location:reset_password.php");
@@ -54,14 +61,14 @@ if (isset($_POST['submit'])) {
         <form method="POST" action="">
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
+                <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" id="confirmPassword">
+                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" name="submit">Submit</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

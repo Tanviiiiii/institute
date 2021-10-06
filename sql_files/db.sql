@@ -150,7 +150,6 @@ INSERT INTO `data` (`id`, `Name`, `Ratings`, `Comments`) VALUES
 
 --
 -- Table structure for table `events_img`
---
 
 CREATE TABLE `events_img` (
   `id` int(11) NOT NULL,
@@ -339,9 +338,9 @@ ALTER TABLE `register`
 ALTER TABLE `studymaterial`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
---
--- AUTO_INCREMENT for table `timetable`
---
+
+ AUTO_INCREMENT for table `timetable`
+
 ALTER TABLE `timetable`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;

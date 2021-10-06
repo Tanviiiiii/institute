@@ -265,7 +265,7 @@ $stmt = $conn->query($query);
               col-md-6
               bg-white
               custom-shadow
-              p-2 p-md-5
+              
               rounded
               mt-lg-2 mt-5
             ">
@@ -304,17 +304,17 @@ $stmt = $conn->query($query);
       <div class="row">
         <div class="col-md-4 text-center">
           <address class="text-white">
-            <strong class="text-white">Where to find me:</strong> <br />
+            <strong class="text-white">Where to Find Me:</strong> <br />
             <br />
-            sco no 7 new gurunanak enclave
-            Guru Harkishan Marg
-            Dhakoli
+            SCO No-7, New Gurunanak Enclave,
+            Guru Harkishan Marg,
+            Dhakoli,
             Panchkula, Punjab 160104
             India
           </address>
         </div>
         <div class="col-md-4 text-center">
-          <strong class="text-white">Follow me:</strong>
+          <strong class="text-white">Follow Me:</strong>
           <br />
           <br />
           <ul class="list-unstyled text-white">

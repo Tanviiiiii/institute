@@ -99,9 +99,7 @@ footer {
   font-size: 1.2rem;
 }
 
-form {
-  padding: 4rem;
-}
+
 @media (max-width: 575px) {
   form {
     padding: 1rem;
