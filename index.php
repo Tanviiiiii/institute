@@ -246,7 +246,7 @@ $stmt = $conn->query($query);
         </div>
 
       </div>
-      <a href="#" class="btn btn-link btn-block w-100  text-center mt-5">Show More Reviews</a>
+      <a href="https://www.google.com/search?q=sumit+sharma+classes&sa=X&ved=2ahUKEwjr6_eChbbzAhViwjgGHfvpAqUQ7xYoAHoECAEQMQ&biw=1536&bih=722&dpr=1.25#lrd=0x390f94c3ce0e6df9:0xf0f0e94feb569fe5,1,,," class="btn btn-link btn-block w-100  text-center mt-5">Show More Reviews</a>
     </div>
 
 
@@ -277,7 +277,7 @@ $stmt = $conn->query($query);
               </div>
               <div class="col-12 mt-3">
                 <label for="Email">Email: </label>
-                <input class="form-control" type="text" name="Email" placeholder="Email Address" />
+                <input class="form-control" type="email" name="Email" placeholder="Email Address" />
               </div>
               <div class="col-12 mt-3">
                 <label for="Subject">Subject</label>
@@ -346,15 +346,15 @@ $stmt = $conn->query($query);
   </footer>
   <?php
   if (isset($_POST['send'])) {
-    $to = "admin@example.com";
+    $to = "tanvisingla3781@gmail.com";
     $subject = $_POST['Subject'];
     $txt = $_POST['Message'];
     $from = $_POST['Email'];
     $headers = "From: {$from}" . "\r\n";
 
-    if (mail($to, $subject, $txt, $headers)) {
-      echo "<script>alert('successfully sent');</script>";
-    }
+    if (!mail($to, $subject, $txt, $headers)) {
+      echo "<script>alert('successfully failed');</script>";
+    } 
   }
   ?>
   <a href="#top" class="

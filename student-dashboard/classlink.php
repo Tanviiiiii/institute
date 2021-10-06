@@ -54,7 +54,7 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
           <div class="card-title">Subject: <?php echo $row['subject'] ?></div>
           <div class="card-title">Chapter:<?php echo $row['chapter'] ?></div>
           <div class="card-title">
-            <a href="<?php echo $row['link'] ?>">Link: <?php echo $row['link'] ?></a>
+            <a href="http://<?php echo $row['link'] ?>/">Link: <?php echo $row['link'] ?></a>
           </div>
         </div>
       <?php endwhile; ?>
