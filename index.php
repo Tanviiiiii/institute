@@ -68,7 +68,7 @@ $stmt = $conn->query($query);
             </ul>
 
             <a href="login.php" class="btn custom-btn-bg text-white rounded-pill px-5">Login</a>
-            <a href="reg.php" class="btn text-custom rounded-pill px-3 fw-bold" style="margin-left: 10px;font-size:16px;">Register</a>
+            <a href="reg.php" class="btn custom-btn-bg text-white rounded-pill px-5" style="margin-left: 10px;font-size:16px;">Register</a>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@ $stmt = $conn->query($query);
         <div class="col-md-6 text-center">
           <?php
 
-          $sub = array("CBSE Exams" => "100%", "Physics/Chemistry/Mathematics(PCM-12th)"  => "100%", "Accounts/Business Studies(Commerce-12th)" => "100%", "Science/Maths(10th)" => "100%", "Home Tuitions For Juniors" => "100%");
+          $sub = array("CBSE Exams" => "100% Result (Since 2009)", "Physics/Chemistry/Mathematics(PCM-12th)"  => "100% Result (Since 2009)", "Accounts/Business Studies(Commerce-12th)" => "100% Result (Since 2009)", "Science/Maths(10th)" => "100% Result (Since 2009)", "Home Tuitions For Juniors" => "100% Result (Since 2009)");
 
           foreach ($sub as $s => $s_value) {
           ?>
@@ -220,7 +220,7 @@ $stmt = $conn->query($query);
         ?>
       </div>
       <div class="container mt-5  d-flex justify-content-center">
-        <a href="events.php" class="btn btn-primary text-center w-25">Show More Images&nbsp; <i class="far fa-eye"></i></a>
+        <a href="events.php" class="btn custom-btn-bg text-white rounded-pill px-5">Show More Images&nbsp; <i class="far fa-eye"></i></a>
       </div>
     </div>
   </section>
@@ -246,8 +246,10 @@ $stmt = $conn->query($query);
         </div>
 
       </div>
-      <a href="https://www.google.com/search?q=sumit+sharma+classes&sa=X&ved=2ahUKEwjr6_eChbbzAhViwjgGHfvpAqUQ7xYoAHoECAEQMQ&biw=1536&bih=722&dpr=1.25#lrd=0x390f94c3ce0e6df9:0xf0f0e94feb569fe5,1,,," class="btn btn-link btn-block w-100  text-center mt-5">Show More Reviews</a>
+      <div class="container mt-5  d-flex justify-content-center">
+      <a href="https://www.google.com/search?q=sumit+sharma+classes&sa=X&ved=2ahUKEwjr6_eChbbzAhViwjgGHfvpAqUQ7xYoAHoECAEQMQ&biw=1536&bih=722&dpr=1.25#lrd=0x390f94c3ce0e6df9:0xf0f0e94feb569fe5,1,,," class="btn custom-btn-bg text-white rounded-pill px-5">Show More Reviews</a>
     </div>
+    
 
 
   </section>
@@ -309,7 +311,7 @@ $stmt = $conn->query($query);
             SCO No-7, New Gurunanak Enclave,
             Guru Harkishan Marg,
             Dhakoli,
-            Panchkula, Punjab 160104
+            Punjab 160104
             India
           </address>
         </div>
@@ -327,6 +329,10 @@ $stmt = $conn->query($query);
             <li>
               <a href="https://www.youtube.com/c/XsumitSharma" class="text-white">Youtube</a>
             </li>
+            <li>
+              <a href="#" class="text-white">Telegram</a>
+            </li>
+            
           </ul>
         </div>
         <div class="col-md-4 text-center">

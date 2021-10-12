@@ -1,4 +1,4 @@
-  <!-- Sidenav -->
+  <!-- Student dashboard Sidenav -->
   <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
       <div class="scrollbar-inner">
           <!-- Brand -->
@@ -47,6 +47,18 @@
                               <a class="nav-link <?php echo $page == "assignment" ? "active" : ""; ?>" href="../../assignment.php">
                                   <i class="ni ni-collection text-red"></i>
                                   <span class="nav-link-text"> <strong>Assignment section</strong></span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link <?php echo $page == "gradecard" ? "active" : ""; ?>" href="gradecard.php">
+                                  <i class="ni ni-collection text-red"></i>
+                                  <span class="nav-link-text"> <strong>Grade Card</strong></span>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link <?php echo $page == "suggestionbox" ? "active" : ""; ?>" href="suggestionbox.php">
+                                  <i class="ni ni-collection text-red"></i>
+                                  <span class="nav-link-text"> <strong>Suggestion Box</strong></span>
                               </a>
                           </li>
                           <li class="nav-item">
