@@ -44,8 +44,8 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Grade Card</h5>
-                        <a class="h4 font-weight-bold mb-0" href="../student-dashboard/gradecard.php">Click Here</a>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Blank</h5>
+                        <a class="h4 font-weight-bold mb-0" href="#">Click Here</a>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">

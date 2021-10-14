@@ -43,8 +43,8 @@ $page = "gradecard";
       <h1 class="text-center p-3 text-white">Grade Card</h1>
     </div>
     <div>
-    <a href="https://classroom.google.com/u/0/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-12th</a><br>
-    <a href="https://classroom.google.com/u/0/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-11th</a><br>
+    <a href="https://classroom.google.com/u/5/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-12th</a><br>
+    <a href="https://classroom.google.com/u/5/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-11th</a><br>
     <a href="https://classroom.google.com/u/0/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-10th</a><br>
     <a href="https://classroom.google.com/u/0/c/MzE2NTk5MDc3MzU0/gb/sort-name">Grade Card-9th</a>
     </div>

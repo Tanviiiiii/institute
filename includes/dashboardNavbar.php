@@ -55,12 +55,12 @@
                 <span class="nav-link-text"> <strong>Assignment section</strong></span>
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link <?php echo $page == "gradecard" ? "active" : ""; ?>" href="gradecard.php">
                 <i class="ni ni-trophy text-red"></i>
                 <span class="nav-link-text"> <strong>Grade Card</strong></span>
               </a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link <?php echo $page == "classlink" ? "active" : ""; ?>" href="classlink.php">
                 <i class="ni ni-bell-55 text-red"></i>

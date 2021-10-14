@@ -164,7 +164,7 @@ $stmt = $conn->query($query);
             <h6 class="h6"><?php echo $ns ?></h6>
             <div class="progress mx-auto mw-100" style="height: 18px; width: 300px">
               <div class="progress-bar" role="progressbar" style="width: <?php echo $ns_value ?>;background-color:#01b0f8;border-radius:10px;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                <?php echo $ns_value ?>
+                <?php echo $ns_value ?> Result (Since 2009)
               </div>
             </div>
             <br>
