@@ -1,3 +1,4 @@
+<!--Admin Dashboard Navbar-->
 <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
   <div class="scrollbar-inner">
     <!-- Brand -->
@@ -26,7 +27,7 @@
             </li>
             <li class="nav-item <?php echo $username !== "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $page == "gallery" ? "active" : ""; ?>" href="../gallery.php">
-                <i class="ni ni-calendar-grid-58 text-red"></i>
+              <i class="ni ni-album-2 text-red"></i> 
                 <span class="nav-link-text"><strong>Gallery</strong></span>
               </a>
             </li>
@@ -49,12 +50,26 @@
                 <span class="nav-link-text"> <strong>Assignment section</strong></span>
               </a>
             </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link <?php echo $page == "gradecard" ? "active" : ""; ?>" href="gradecard.php">
+                <i class="ni ni-trophy text-red"></i>
+                <span class="nav-link-text"> <strong>Grade Card</strong></span>
+              </a>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link <?php echo $page == "classlink" ? "active" : ""; ?>" href="classlink.php">
                 <i class="ni ni-bell-55 text-red"></i>
                 <span class="nav-link-text"> <strong>class Link</strong></span>
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link <?php echo $page == "suggestionbox" ? "active" : ""; ?>" href="suggestionbox.php">
+                <i class="ni ni-support-16 text-red"></i>
+                <span class="nav-link-text"> <strong>Suggestion Box</strong></span>
+              </a>
+            </li>
+            
+            
             <li class="nav-item">
               <a class="nav-link" href="../logout.php">
                 <i class="ni ni-button-power text-red"></i>
