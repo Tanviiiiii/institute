@@ -1,0 +1,14 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+.text-red {
+  color: #f5365c !important;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.nav-item {
+  margin-top: 10px;
+}
