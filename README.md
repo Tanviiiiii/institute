@@ -6,7 +6,7 @@
 
 # problems
 
-- [x] students are able to go back to admin dashboard (done)
+- [✔] students are able to go back to admin dashboard (done)
 
 - [x] classes in all pages will there be 1-12 or something needs to be removed. (done)
 
