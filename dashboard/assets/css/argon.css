@@ -18484,7 +18484,7 @@ textarea[resize="horizontal"] {
 }
 
 .g-sidenav-pinned .sidenav {
-  max-width: 15% !important;
+  max-width: 250px !important;
 }
 
 @media (max-width: 557px) {

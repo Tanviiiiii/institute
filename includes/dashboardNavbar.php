@@ -36,12 +36,7 @@
                 <span class="nav-link-text"><strong>Student Managment</strong></span>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link " href="feemanagement.php">
-                <i class="ni ni-credit-card text-red"></i>
-                <span class="nav-link-text"> <strong>Fee Managment</strong></span>
-              </a>
-            </li> -->
+
             <li class="nav-item <?php echo $username == "admin" ? "d-none" : "" ?>">
               <a class="nav-link <?php echo $page == "studymaterial" ? "active" : ""; ?>" href="studymaterial.php">
                 <i class="ni ni-single-copy-04 text-red"></i>

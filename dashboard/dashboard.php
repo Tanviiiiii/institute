@@ -32,6 +32,12 @@ if ($page == "dashboard") {
         padding-left: 0 !important;
       }
     }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 
