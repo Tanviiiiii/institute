@@ -1,5 +1,6 @@
 <?php
 include("includes/database.php");
+date_default_timezone_set("Asia/Kolkata");
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = $classErr = "";
 function test_input($data)
 {
@@ -8,6 +9,18 @@ function test_input($data)
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+function sendOTP($email, $otp)
+{
+  $to = $email;
+  $subject = "OTP Email Verification";
+  $txt = "Enter the OTP for verification" . $otp;
+
+  if (mail($to, $subject, $txt)) {
+    return 1;
+  }
+  return 0;
 }
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
@@ -68,6 +81,37 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
     }
   } else {
     $stmt->bind_param("ssssssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject, $class, $token, $status);
+
+    // genrate OTP
+    $otp = rand(100000, 999999);
+    // send otp to email
+    $mail_status = sendOTP($email, $otp);
+    // mail stastus
+    if ($mail_status == 1) {
+      $q = "INSERT INTO otp_expiry(otp,is_expired,created_at) VALUES('$otp',0,date('Y-m-d H:i:s'))";
+      $result = $conn->query($q);
+      $current_id = $conn->insert_id;
+      if (!empty($current_id))
+        $success = 1;
+      else
+        $success = 0;
+    } else {
+      $errorMsg = "Email doesn't Exists!";
+    }
+    if (!empty($_POST['submit_otp'])) {
+      $otp_submit = $_POST['otp'];
+      $otp_query = "SELECT * FROM otp_expiry WHERE otp = $otp_submit AND is_expired != 1 AND NOW() <= DATE_ADD(create_at,INTERVAL 24 HOUR)";
+      $result = $conn->query($otp_query);
+      $count = $result->num_rows;
+      if (!empty($count)) {
+        $result = $conn->query("UPDATE otp_expiry SET is is_expired = 1 WHERE otp = $otp_submit");
+        $success = 2;
+      } else {
+        $success = 1;
+        $errorMsg = "Invalid OTP!";
+      }
+    }
+
     $res = $stmt->execute();
 
     if (!$res) {
@@ -76,7 +120,7 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
 ?>
       <div class="container mt-md-4 mt-2">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-          <strong>You have been registered successfully!</strong>
+          <strong>You have been registered successfully check your email for verification!</strong>
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       </div>
@@ -110,11 +154,16 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
     }
 
     body {
-      background: linear-gradient(45deg, #ce1e53, #8f00c7);
+      /* background: linear-gradient(45deg, #ce1e53, #8f00c7); */
+      background-color: #1F1D36;
       min-height: 100vh;
     }
 
     body::-webkit-scrollbar {
+      display: none;
+    }
+
+    select::-webkit-scrollbar {
       display: none;
     }
 
@@ -218,12 +267,27 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
         margin: 20px;
       }
     }
+
+    input:focus {
+      border-color: #864879 !important;
+      border-width: 2px !important;
+    }
+
+    input label {
+      color: #1F1D36 !important;
+      font-weight: bold;
+
+    }
   </style>
 </head>
 
 <body class="snippet-body">
   <div class="wrapper rounded bg-white">
-    <div class="h3">Registration Form</div>
+    <div class="h3" style="
+    color: #1F1D36;
+    font-size: calc(2.3rem + .6vw);
+    font-weight: bold;
+">Registration Form</div>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="f1">
       <div class="form">
         <div class="row">
@@ -316,10 +380,21 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
             <option value="JEE Mains/Advance">JEE Mains/Advance</option>
           </select>
         </div>
-        <input class="btn btn-primary mt-3" name="submit" type="submit" value="Submit" />
-        <a href="login.php" class="btn btn-danger text-decoration-none text-white mt-3">Back to login page</a>
+        <input class="btn mt-3" name="submit" type="submit" value="Submit" style="background:#1F1D36;color:white;" />
+        <a href="login.php" class="btn  text-decoration-none text-white mt-3" style="background-color:#864879;color:white;">Back to login page</a>
       </div>
     </form>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="f2">
+      <?php
+      if (isset($success) && !empty($success == 1)) {
+      ?>
+        <div>
+          Enter OTP
+        </div>
+        <input type="text" name="otp" id="otp" placeholder="One Time Password" class="login-input" required>
+        <input type="submit" value="submit" name="submit_otp">
+    </form>
+  <?php } ?>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
