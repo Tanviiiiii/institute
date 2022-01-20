@@ -167,6 +167,10 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
       display: none;
     }
 
+    .rounded {
+      border-radius: 1.25rem !important;
+    }
+
     .wrapper {
       max-width: 800px;
       margin: 80px auto;
