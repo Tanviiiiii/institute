@@ -1,7 +1,6 @@
 <?php
 include("includes/database.php");
-$errorMsg = "";
-$success = 0;
+
 
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = $classErr = "";
 function test_input($data)
@@ -13,17 +12,6 @@ function test_input($data)
   return $data;
 }
 
-function sendOTP($email, $otp)
-{
-  $to = $email;
-  $subject = "OTP Email Verification";
-  $txt = "Enter the OTP for verification" . $otp;
-
-  if (mail($to, $subject, $txt)) {
-    return 1;
-  }
-  return 0;
-}
 
 if (($_SERVER['REQUEST_METHOD']) == "POST") {
   $stmt = $conn->prepare("INSERT INTO register(firstname,lastname,email,password,phone,gender,subject,class,token,status) VALUES(?,?,?,?,?,?,?,?,?,?)");
@@ -83,27 +71,6 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
     }
   } else {
     $stmt->bind_param("ssssssssss", $firstname, $lastname, $email, $password, $phone, $gender, $subject, $class, $token, $status);
-
-    // genrate OTP
-    $otp = rand(100000, 999999);
-    // send otp to email
-    $mail_status = sendOTP($email, $otp);
-    // mail stastus
-    if ($mail_status == 1) {
-      $d = date('Y-m-d H:i:s');
-      $q = "INSERT INTO otp_expiry(otp,is_expired,created_at) VALUES('$otp',0,'$d')";
-      $result = $conn->query($q);
-      $current_id = $conn->insert_id;
-      if (!empty($current_id)) {
-        $success = 1;
-        echo "<h1 style='color:white'>$success $current_id</h1>";
-      } else {
-        $success = 0;
-      }
-    } else {
-      $errorMsg = "Email doesn't Exists!";
-    }
-
     $res = $stmt->execute();
 
     if (!$res) {
@@ -118,24 +85,21 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
       </div>
 
 <?php
-
+      $subject = "Email Activation";
+      $body = "Hi {$firstname} {$lastname} Click here to activate your account http://localhost/activate.php?token={$token}";
+      $headers = "From: tanvisingla3781@gmail.com";
+      if (mail($email, $subject, $body, $headers)) {
+        $_SESSION['msg'] = "check mail to activate your account {$email}";
+        header('location:login.php');
+      } else {
+        echo "Email send failed";
+      }
       $stmt->close();
       $conn->close();
     }
   }
 }
-if (isset($_POST['submit_otp']) && !empty($_POST['submit_otp'])) {
-  $otp_submit = $_POST['otp'];
-  $otp_query = "SELECT * FROM otp_expiry WHERE otp = $otp_submit AND is_expired != 1 AND NOW() <= DATE_ADD(created_at,INTERVAL 24 HOUR)";
-  $result = $conn->query($otp_query);
-  $count = $result->num_rows;
-  if (!empty($count)) {
-    $result = $conn->query("UPDATE otp_expiry SET  is_expired = 1 WHERE otp = $otp_submit");
-    $success = 2;
-  } else {
-    $errorMsg = "Invalid OTP!";
-  }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -151,11 +115,7 @@ if (isset($_POST['submit_otp']) && !empty($_POST['submit_otp'])) {
 </head>
 
 <body class="snippet-body">
-  <?php
-  if (!empty($errorMsg)) {
-    echo $errorMsg;
-  }
-  ?>
+
   <div class="wrapper rounded bg-white">
     <div class="h3" style="
     color: #1F1D36;
@@ -254,28 +214,14 @@ if (isset($_POST['submit_otp']) && !empty($_POST['submit_otp'])) {
             <option value="JEE Mains/Advance">JEE Mains/Advance</option>
           </select>
         </div>
-        <input class="btn mt-3" name="submit" type="submit" value="Submit" style="background:#1F1D36;color:white;" />
-        <a href="login.php" class="btn  text-decoration-none text-white mt-3" style="background-color:#864879;color:white;">Back to login page</a>
+        <input class="btn mt-3" name="submit" type="submit" value="Create an account" style="background:#1F1D36;color:white;" />
+        <p class="mt-3">
+          Already have an account ?<a href="login.php" class=" mt-3" style="color:#864879;"> Login</a>
+        </p>
+
       </div>
     </form>
-    <form name="f2" id="f2" method="POST" action="">
-      <?php
 
-      if (($success == 1)) {
-      ?>
-        <div>
-          Enter OTP
-        </div>
-        <input type="text" name="otp" id="otp" placeholder="One Time Password" class="login-input" required>
-        <input type="submit" value="submit" name="submit_otp">
-
-      <?php
-      }
-      if ($success == 2) {
-        header("Location:login.php");
-      }
-      ?>
-    </form>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>

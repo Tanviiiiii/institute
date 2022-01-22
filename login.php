@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     if (isset($_POST['submit'])) {
         $email =  $conn->real_escape_string($_POST['email']);
         $password =  $conn->real_escape_string($_POST['psw']);
-        $query = "SELECT * FROM register WHERE email='{$email}'";
+        $query = "SELECT * FROM register WHERE email='{$email}' and status='active'";
         $result = $conn->query($query);
         $row = $result->fetch_assoc();
         if ($result->num_rows == 1) {
@@ -270,6 +270,17 @@ if (!isset($_SESSION['loggedin'])) {
                             <figure style="display: flex;justify-content: center;align-items:center;border-radius: 50%;"><img src="./assets/img/logo.jpeg" alt="logo" width="100" height="100" style="border-radius: 50%;"></figure>
                             <h3 class="mb-5 text-center heading">We are S2C</h3>
                             <h6 class="msg-info">Please login to your account</h6>
+                            <div class="bg-danger text-white">
+                                <p>
+                                    <?php
+                                    if (isset($_SESSION['msg'])) {
+                                        echo $_SESSION['msg'];
+                                    } else {
+                                        echo $_SESSION['msg'] = 'you are logged out. login again';
+                                    }
+                                    ?>
+                                </p>
+                            </div>
                             <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" name="form1">
                                 <div class="form-group"><label class="form-control-label text-muted" for="email">Email</label><input type="text" id="email" name="email" placeholder="Enter Email" required="required" class="form-control"></div>
                                 <div class="form-group"><label class="form-control-label text-muted">Password</label><input type="password" id="psw" name="psw" placeholder="Enter Password" class="form-control" required></div>
