@@ -1,6 +1,8 @@
 <?php
 include("includes/database.php");
-date_default_timezone_set("Asia/Kolkata");
+$errorMsg = "";
+$success = 0;
+
 $firstnameErr = $lastnameErr = $emailErr = $passwordErr = $phoneErr = $genderErr = $subjectErr = $classErr = "";
 function test_input($data)
 {
@@ -88,28 +90,18 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
     $mail_status = sendOTP($email, $otp);
     // mail stastus
     if ($mail_status == 1) {
-      $q = "INSERT INTO otp_expiry(otp,is_expired,created_at) VALUES('$otp',0,date('Y-m-d H:i:s'))";
+      $d = date('Y-m-d H:i:s');
+      $q = "INSERT INTO otp_expiry(otp,is_expired,created_at) VALUES('$otp',0,'$d')";
       $result = $conn->query($q);
       $current_id = $conn->insert_id;
-      if (!empty($current_id))
+      if (!empty($current_id)) {
         $success = 1;
-      else
+        echo "<h1 style='color:white'>$success $current_id</h1>";
+      } else {
         $success = 0;
+      }
     } else {
       $errorMsg = "Email doesn't Exists!";
-    }
-    if (!empty($_POST['submit_otp'])) {
-      $otp_submit = $_POST['otp'];
-      $otp_query = "SELECT * FROM otp_expiry WHERE otp = $otp_submit AND is_expired != 1 AND NOW() <= DATE_ADD(create_at,INTERVAL 24 HOUR)";
-      $result = $conn->query($otp_query);
-      $count = $result->num_rows;
-      if (!empty($count)) {
-        $result = $conn->query("UPDATE otp_expiry SET is is_expired = 1 WHERE otp = $otp_submit");
-        $success = 2;
-      } else {
-        $success = 1;
-        $errorMsg = "Invalid OTP!";
-      }
     }
 
     $res = $stmt->execute();
@@ -124,14 +116,26 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       </div>
+
 <?php
-      header("refresh:2;url=./login.php");
+
       $stmt->close();
       $conn->close();
     }
   }
 }
-
+if (isset($_POST['submit_otp']) && !empty($_POST['submit_otp'])) {
+  $otp_submit = $_POST['otp'];
+  $otp_query = "SELECT * FROM otp_expiry WHERE otp = $otp_submit AND is_expired != 1 AND NOW() <= DATE_ADD(created_at,INTERVAL 24 HOUR)";
+  $result = $conn->query($otp_query);
+  $count = $result->num_rows;
+  if (!empty($count)) {
+    $result = $conn->query("UPDATE otp_expiry SET  is_expired = 1 WHERE otp = $otp_submit");
+    $success = 2;
+  } else {
+    $errorMsg = "Invalid OTP!";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -143,156 +147,22 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
   <title>Registration Form</title>
   <link rel="icon" href="assets/img/brand/logo.ico" type="image/png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      /* background: linear-gradient(45deg, #ce1e53, #8f00c7); */
-      background-color: #1F1D36;
-      min-height: 100vh;
-    }
-
-    body::-webkit-scrollbar {
-      display: none;
-    }
-
-    select::-webkit-scrollbar {
-      display: none;
-    }
-
-    .rounded {
-      border-radius: 1.25rem !important;
-    }
-
-    .wrapper {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 30px 45px;
-      box-shadow: 5px 25px 35px #3535356b;
-    }
-
-    .wrapper label {
-      display: block;
-      padding-bottom: 0.2rem;
-    }
-
-    .wrapper .form .row {
-      padding: 0.6rem 0;
-    }
-
-    .wrapper .form .row .form-control {
-      box-shadow: none;
-    }
-
-    .wrapper .form .option {
-      position: relative;
-      padding-left: 20px;
-      cursor: pointer;
-    }
-
-    .wrapper .form .option input {
-      opacity: 0;
-    }
-
-    .wrapper .form .checkmark {
-      position: absolute;
-      top: 1px;
-      left: 0;
-      height: 20px;
-      width: 20px;
-      border: 1px solid #bbb;
-      border-radius: 50%;
-    }
-
-    .wrapper .form .option input:checked~.checkmark:after {
-      display: block;
-    }
-
-    .wrapper .form .option:hover .checkmark {
-      background: #f3f3f3;
-    }
-
-    .wrapper .form .option .checkmark:after {
-      content: "";
-      width: 10px;
-      height: 10px;
-      display: block;
-      background: linear-gradient(45deg, #ce1e53, #8f00c7);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      border-radius: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      transition: 300ms ease-in-out 0s;
-    }
-
-    .wrapper .form .option input[type="radio"]:checked~.checkmark {
-      background: #fff;
-      transition: 300ms ease-in-out 0s;
-    }
-
-    .wrapper .form .option input[type="radio"]:checked~.checkmark:after {
-      transform: translate(-50%, -50%) scale(1);
-    }
-
-    #sub {
-      display: block;
-      width: 100%;
-      border: 1px solid #ddd;
-      padding: 10px;
-      border-radius: 5px;
-      color: #333;
-    }
-
-    #sub:focus {
-      outline: none;
-    }
-
-    @media (max-width: 768.5px) {
-      .wrapper {
-        margin: 30px;
-      }
-
-      .wrapper .form .row {
-        padding: 0;
-      }
-    }
-
-    @media (max-width: 400px) {
-      .wrapper {
-        padding: 25px;
-        margin: 20px;
-      }
-    }
-
-    input:focus {
-      border-color: #864879 !important;
-      border-width: 2px !important;
-    }
-
-    input label {
-      color: #1F1D36 !important;
-      font-weight: bold;
-
-    }
-  </style>
+  <?php include("reg_style.php"); ?>
 </head>
 
 <body class="snippet-body">
+  <?php
+  if (!empty($errorMsg)) {
+    echo $errorMsg;
+  }
+  ?>
   <div class="wrapper rounded bg-white">
     <div class="h3" style="
     color: #1F1D36;
     font-size: calc(2.3rem + .6vw);
     font-weight: bold;
 ">Registration Form</div>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="f1">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="f1" id="f1">
       <div class="form">
         <div class="row">
           <div class="col-md-6 mt-md-0 mt-3">
@@ -388,17 +258,25 @@ if (($_SERVER['REQUEST_METHOD']) == "POST") {
         <a href="login.php" class="btn  text-decoration-none text-white mt-3" style="background-color:#864879;color:white;">Back to login page</a>
       </div>
     </form>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" name="f2">
+    <form name="f2" id="f2" method="POST" action="">
       <?php
-      if (isset($success) && !empty($success == 1)) {
+
+      if (($success == 1)) {
       ?>
         <div>
           Enter OTP
         </div>
         <input type="text" name="otp" id="otp" placeholder="One Time Password" class="login-input" required>
         <input type="submit" value="submit" name="submit_otp">
+
+      <?php
+      }
+      if ($success == 2) {
+        header("Location:login.php");
+      }
+      ?>
     </form>
-  <?php } ?>
+
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
