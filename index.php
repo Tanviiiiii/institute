@@ -223,6 +223,9 @@ $stmt = $conn->query($query);
         ?>
       </div>
     </div>
+    <div class="container mt-5  d-flex justify-content-center">
+      <a href="events.php" class="btn custom-btn-bg text-white rounded-pill px-5">Show More Images&nbsp; <i class="far fa-eye"></i></a>
+    </div>
   </section>
   <section id="testimonial" class="p-md-5 p-3" style="margin-top: 80px">
     <div class="container">

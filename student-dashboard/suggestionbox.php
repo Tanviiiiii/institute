@@ -51,8 +51,12 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
     <!-- Header -->
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
-      <h1 class="text-center p-3 text-white">Suggestion Box </h1>
-      <textarea name="suggestion" id="suggestion" cols="120" rows="10" class="form-control"></textarea>
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" name="suggestion_form">
+        <h1 class="text-center p-3 text-white">Suggestion Box </h1>
+        <textarea name="suggestion" id="suggestion" cols="120" rows="10" class="form-control"></textarea>
+        <input type="submit" value="Submit" name="suggestion">
+      </form>
+
     </div>
   </div>
   <?php include("../includes/scripts.php"); ?>
