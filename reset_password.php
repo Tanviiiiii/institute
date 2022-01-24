@@ -22,7 +22,6 @@ if (isset($_POST['submit'])) {
                 $_SESSION['passMsg'] = "Your password has been updated";
                 // echo "<script>alert('update');</script>";
                 header("refresh=2;url=login.php");
-
             } else {
                 $_SESSION['passMsg'] = "your password is not updated";
                 header("location:reset_password.php");
@@ -61,11 +60,11 @@ if (isset($_POST['submit'])) {
         <form method="POST" action="">
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp">
+                <input type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
                 <label for="confirmPassword" class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword">
+                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required>
             </div>
 
             <button type="submit" class="btn btn-primary" name="submit">Submit</button>

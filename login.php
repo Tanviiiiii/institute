@@ -273,11 +273,11 @@ if (!isset($_SESSION['loggedin'])) {
                             <div class="bg-danger text-white">
                                 <p>
                                     <?php
-                                    if (isset($_SESSION['msg'])) {
-                                        echo $_SESSION['msg'];
-                                    } else {
-                                        echo $_SESSION['msg'] = 'you are logged out. login again';
-                                    }
+                                    // if (isset($_SESSION['msg'])) {
+                                    //     echo $_SESSION['msg'];
+                                    // } else {
+                                    //     echo $_SESSION['msg'] = 'you are logged out. login again';
+                                    // }
                                     ?>
                                 </p>
                             </div>

@@ -3,7 +3,7 @@ include("../includes/session_check.php");
 include("../includes/check.php");
 $page = "suggestionbox";
 $username = $_SESSION['username'];
-$query = "SELECT * from suggestion WHERE username='$username'";
+$query = "SELECT * from suggestion WHERE username != '$username'";
 $res = $conn->query($query);
 if (!$res) {
   echo "failed to fetch the user";
@@ -58,15 +58,18 @@ if (!$res) {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <?php
-            while ($row = $res->fetch_assoc) :
-            ?>
-              <td scope="row"><?php echo $row['username']; ?></td>
-              <td scope="row"><?php echo $row['suggestion']; ?></td>
-            <?php endwhile; ?>
-          </tr>
+          <?php
+          if ($res->num_rows > 0) {
+            while ($row = $res->fetch_assoc()) :
+          ?>
+              <tr>
 
+                <td scope="row"><?php echo $row['username']; ?></td>
+                <td scope="row"><?php echo $row['suggestion']; ?></td>
+
+              </tr>
+          <?php endwhile;
+          } ?>
         </tbody>
       </table>
     </div>
