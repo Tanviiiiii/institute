@@ -202,6 +202,9 @@ $stmt = $conn->query($query);
         <span class="visually-hidden">Next</span>
       </button>
     </div>
+    <div class="container mt-5  d-flex justify-content-center">
+      <a href="events.php" class="btn custom-btn-bg text-white rounded-pill px-5">Show More Images&nbsp; <i class="far fa-eye"></i></a>
+    </div>
   </section>
   <section id="gallery" class="p-md-5 p-3 d-none d-md-block" style="margin-top: 80px">
     <h1 class="text-center fw-bold">Gallery</h1>
@@ -218,9 +221,6 @@ $stmt = $conn->query($query);
           $i++;
         }
         ?>
-      </div>
-      <div class="container mt-5  d-flex justify-content-center">
-        <a href="events.php" class="btn custom-btn-bg text-white rounded-pill px-5">Show More Images&nbsp; <i class="far fa-eye"></i></a>
       </div>
     </div>
   </section>
@@ -247,9 +247,9 @@ $stmt = $conn->query($query);
 
       </div>
       <div class="container mt-5  d-flex justify-content-center">
-      <a href="https://www.google.com/search?q=sumit+sharma+classes&sa=X&ved=2ahUKEwjr6_eChbbzAhViwjgGHfvpAqUQ7xYoAHoECAEQMQ&biw=1536&bih=722&dpr=1.25#lrd=0x390f94c3ce0e6df9:0xf0f0e94feb569fe5,1,,," class="btn custom-btn-bg text-white rounded-pill px-5">Show More Reviews</a>
-    </div>
-    
+        <a href="https://www.google.com/search?q=sumit+sharma+classes&sa=X&ved=2ahUKEwjr6_eChbbzAhViwjgGHfvpAqUQ7xYoAHoECAEQMQ&biw=1536&bih=722&dpr=1.25#lrd=0x390f94c3ce0e6df9:0xf0f0e94feb569fe5,1,,," class="btn custom-btn-bg text-white rounded-pill px-5">Show More Reviews</a>
+      </div>
+
 
 
   </section>
@@ -271,7 +271,7 @@ $stmt = $conn->query($query);
               rounded
               mt-lg-2 mt-5
             ">
-          <form class="contact-form" method="POST" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+          <form class="contact-form" method="POST">
             <div class="form-row">
               <div class="col-12">
                 <label for="Name">Name: </label>
@@ -332,7 +332,7 @@ $stmt = $conn->query($query);
             <li>
               <a href="#" class="text-white">Telegram</a>
             </li>
-            
+
           </ul>
         </div>
         <div class="col-md-4 text-center">
@@ -357,10 +357,33 @@ $stmt = $conn->query($query);
     $txt = $_POST['Message'];
     $from = $_POST['Email'];
     $headers = "From: {$from}" . "\r\n";
+    $mail = mail($to, $subject, $txt, $headers);
+    if ($mail) {
+  ?>
+      <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Email</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Mail sent successfully.</p>
+            </div>
+            <div class="modal-footer">
 
-    if (!mail($to, $subject, $txt, $headers)) {
-      echo "<script>alert('successfully failed');</script>";
-    } 
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  <?php
+    } else {
+
+      echo "mail failed to send";
+    }
   }
   ?>
   <a href="#top" class="
