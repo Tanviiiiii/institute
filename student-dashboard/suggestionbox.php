@@ -4,10 +4,13 @@ $page = "suggestionbox";
 if (isset($_POST['suggestion'])) {
   $suggestion = $_POST['suggestion'];
   $username = $_SESSION['username'];
-  $query = "INSERT INTO suggestion(username,suggestion) values('$username','$suggestion')";
+  $subject = $_POST['subject'];
+  $query = "INSERT INTO suggestion(username,subject,suggestion) values('$username','$subject','$suggestion')";
   $res = $conn->query($query);
   if (!$res) {
     echo "errro";
+  } else {
+    $success = 1;
   }
 }
 ?>
@@ -40,6 +43,20 @@ if (isset($_POST['suggestion'])) {
 </head>
 
 <body>
+  <?php
+  if (isset($success) == 1) {
+  ?>
+    <div style="z-index: 9999; position:absolute;left:50%;">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> Your query has been submitted.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    </div>
+    <!-- Modal -->
+
+  <?php
+  }
+  ?>
   <!-- Sidenav -->
   <?php include("../includes/dashboardNavbar.php"); ?>
   <!-- Main content -->
@@ -53,8 +70,13 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
     <div class="container position-relative" style="top:-36%;">
       <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" name="suggestion_form">
         <h1 class="text-center p-3 text-white">Suggestion Box </h1>
+        <label for="Subject" class="text-white">Subject</label>
+        <input type="text" name="subject" id="subject" class="form-control">
+        <br>
+        <label for="suggestion">Comments</label>
         <textarea name="suggestion" id="suggestion" cols="120" rows="10" class="form-control"></textarea>
-        <input type="submit" value="Submit" name="suggestion">
+        <br><br>
+        <input type="submit" value="Submit" name="suggestion" class="btn btn-success">
       </form>
 
     </div>
