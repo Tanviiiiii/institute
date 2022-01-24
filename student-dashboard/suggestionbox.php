@@ -1,6 +1,15 @@
 <?php
 include("../includes/session_check.php");
-$page = "classlink";
+$page = "suggestionbox";
+if (isset($_POST['suggestion'])) {
+  $suggestion = $_POST['suggestion'];
+  $username = $_SESSION['username'];
+  $query = "INSERT INTO suggestion(username,suggestion) values('$username','$suggestion')";
+  $res = $conn->query($query);
+  if (!$res) {
+    echo "errro";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,10 +52,11 @@ background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);padding-left
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">Suggestion Box </h1>
+      <textarea name="suggestion" id="suggestion" cols="120" rows="10" class="form-control"></textarea>
     </div>
   </div>
   <?php include("../includes/scripts.php"); ?>
-  <script src="./assets/js/classlink.js" async></script>
+  <script src=" ./assets/js/classlink.js" async></script>
 </body>
 
 </html>

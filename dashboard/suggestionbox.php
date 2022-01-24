@@ -1,10 +1,18 @@
 <?php
 include("../includes/session_check.php");
 include("../includes/check.php");
-$page = "gradecard";
+$page = "suggestionbox";
+$username = $_SESSION['username'];
+$query = "SELECT * from suggestion WHERE username='$username'";
+$res = $conn->query($query);
+if (!$res) {
+  echo "failed to fetch the user";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,6 +36,7 @@ $page = "gradecard";
     }
   </style>
 </head>
+
 <body>
   <!-- Sidenav -->
   <?php include("../includes/dashboardNavbar.php"); ?>
@@ -41,8 +50,28 @@ $page = "gradecard";
     <?php include("../includes/dashboardHeader.php"); ?>
     <div class="container position-relative" style="top:-36%;">
       <h1 class="text-center p-3 text-white">Suggestion box</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Suggestion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <?php
+            while ($row = $res->fetch_assoc) :
+            ?>
+              <td scope="row"><?php echo $row['username']; ?></td>
+              <td scope="row"><?php echo $row['suggestion']; ?></td>
+            <?php endwhile; ?>
+          </tr>
+
+        </tbody>
+      </table>
     </div>
   </div>
   <?php include("../includes/scripts.php"); ?>
 </body>
+
 </html>
